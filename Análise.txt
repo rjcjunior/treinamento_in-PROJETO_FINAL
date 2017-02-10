@@ -1,0 +1,48 @@
+Análise Front
+
+Páginas:
+
+	Users
+
+	. Login/Esqueceu senha
+	. Dashboard
+	. Estatisticas
+	. Escrever/editar artigo
+	. Visualizar artigo
+	. Pesquisa
+	. Criar/Editar pergunta
+	. Visualizae/Responder pergunta
+	. Visualizar perfil
+	. Editar perfil
+
+	Admin
+
+	. Gerenciar usuários(CRUD)
+	. Gerenciar postagens
+
+
+Análise Back
+
+Páginas:
+
+	Users
+
+	 fazer o banco de dados
+	 validar login
+	 recuperar senha
+	 buscar conteúdo no bd(artigos, perguntas, etc)
+	 trazer estatísticas do bd(2 gerais e 1 pessoal)
+	 new Artigo x 
+	 edit Artigo x
+	 show Artigo x
+	 mostrar resultados da busca no bd
+	 new pergunta
+	 edit pergunta
+	 show pergunta(show respostas)
+	 show user
+	 edit user
+
+	Admin
+
+	. Gerenciar usuários(CRUD) - new/edit/show/destroy
+	. Gerenciar postagens - new/edit/show/destroy

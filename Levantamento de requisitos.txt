@@ -1,0 +1,30 @@
+Levantamento de requisitos
+
+Funcionais
+
+. O sistema deve fazer Login
+. O sistema nao deve permitir o usuário
+de acessar a wikia se o mesmo nao estiver logado
+. O sistema deve fazer pesquisas
+. O sistema deve conter estatísticas
+. O sistema deve permitir o usuário
+fazer perguntas e artigos
+. O sistema deve permitir ao usuário
+responder e votar as perguntas e artigos
+. O sistema deve permitir ao usuário alterar
+seu cadastro
+. O sistema deve apagar postagens com muitos votos negativos
+. O usuário não deve poder alterar seu email
+
+
+Não Funcionais
+
+. O login deve ser feito com email e senha
+. A pesquisa pode ser feita por nome_de_usuário ou tags
+. O nome_de_usuario deve seguir o padrão do email
+. As estatisticas devem possuir duas formas gerais e uma forma pessoal
+. O usuário pode alterar a caracteristica do texto em suas postagens
+(ex: cor da fonte, negrito, itálico)
+. O usuário pode inserir imagens em suas postagens 
+
+
