@@ -1,13 +1,29 @@
-<%= form_for(:session, url: login_path) do |f| %>
+<% provide(:title, "Login") %>
 
-<%= f.label :email %>
+<html>
+<body>
+	<header>
+		<img src="logo-branca-mini-2.png" class="logo">
+		<p class="textLogo">kipedia</p>
+    <div class="login">
+            <%= form_for(:session, url: login_path) do |f| %>
+			<%= f.label :email, class:"labelEmail" %>
+			<br>
+            <%= f.text_field :email %>
+			<br>
+			<%= f.label :password, class:"senha" %>
+			<br>
+            <%= f.password_field :password %>
+			<br>
+            <%= f.submit "Log in", class:"botaologin" %>
+			<br>
+			<div class="esqueceuSenha">
+				Esqueceu a senha? <a href="">Clique aqui</a>
+			</div>
 
-<%= f.text_field :email %>
-
-<%= f.label :password %>
-
-<%= f.password_field :password %>
-
-<%= f.submit "Log in" %>
-
-<% end %>
+        <% end %>
+</div>
+	</header>
+		
+</body>
+</html>
