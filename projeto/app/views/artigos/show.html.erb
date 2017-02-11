@@ -1,24 +1,36 @@
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+</style> 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Titulo:</strong>
-  <%= @artigo.titulo %>
-</p>
 
 <p>
-  <strong>Data:</strong>
-  <%= @artigo.data %>
+  <h1>
+    <%= @artigo.titulo %>
+  </h1>
+
 </p>
+
+<p class="artigoData">
+  <div  class="criador">
+    Criado por:
+    <%= @artigo.user.nome %>
+  </div>
+  <div class="data">
+    <%= @artigo.data.strftime("%d/%m/%Y às %H:%M") %>
+  </div>
+</p>
+
+<div class="artigo">
+  
+  <%= raw @artigo.conteudo %>
+</div>
 
 <p>
-  <strong>Conteudo:</strong>
-  <%= @artigo.conteudo %>
+  
+  
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @artigo.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_artigo_path(@artigo) %> |
-<%= link_to 'Back', artigos_path %>
+<%= link_to 'Editar', edit_artigo_path(@artigo), class:"botaoEditar" %> 
+<%= link_to 'Voltar', artigos_path, class:"botaoVoltar" %>

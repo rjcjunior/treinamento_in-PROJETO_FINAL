@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+  
   resources :user_artigos
   resources :resposta
   resources :pergunta
@@ -11,5 +16,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   
   resources :users
+  resources :password_resets,     only: [:new, :create, :edit, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

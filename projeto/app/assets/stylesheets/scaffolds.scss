@@ -4,7 +4,7 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
-  margin: 33px;
+  margin: 0px;
 }
 
 p, ol, ul, td {
@@ -22,14 +22,14 @@ pre {
 
 a {
   color: #000;
+  text-decoration: none;
 
   &:visited {
     color: #666;
   }
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: black;
   }
 }
 
@@ -87,3 +87,22 @@ div {
 label {
   display: block;
 }
+footer{
+			height: 150px;
+			width: 100%;
+			background-color: black;
+			text-align: center;
+			color: #696969;
+			padding-top: 50px;
+			margin-left:0px;
+			margin-top: 30px;
+		}
+
+
+
+
+
+
+
+
+

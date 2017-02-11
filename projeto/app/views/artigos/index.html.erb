@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Artigos</h1>
+<h1>Todos os Artigos</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Titulo</th>
+      <th>Título</th>
       <th>Data</th>
-      <th>Conteudo</th>
-      <th>User</th>
+      <th>Descrição</th>
+      <th>Autor</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,13 +16,14 @@
   <tbody>
     <% @artigos.each do |artigo| %>
       <tr>
-        <td><%= artigo.titulo %></td>
-        <td><%= artigo.data %></td>
-        <td><%= artigo.conteudo %></td>
-        <td><%= artigo.user_id %></td>
-        <td><%= link_to 'Show', artigo %></td>
+        <td><%= link_to artigo.titulo, artigo %></td>
+        <td><%= artigo.data.strftime("%d/%m/%Y às %H:%M") %></td>
+        <td><%=  artigo.subtitulo %></td>
+        <td><%= artigo.user.nome %></td>
         <td><%= link_to 'Edit', edit_artigo_path(artigo) %></td>
-        <td><%= link_to 'Destroy', artigo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if (current_user.is_adm == true) %>
+          <td><%= link_to 'Destroy', artigo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

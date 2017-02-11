@@ -1,6 +1,6 @@
 class ArtigosController < ApplicationController
   before_action :set_artigo, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /artigos
   # GET /artigos.json
   def index
@@ -25,7 +25,8 @@ class ArtigosController < ApplicationController
   # POST /artigos.json
   def create
     @artigo = Artigo.new(artigo_params)
-
+    @artigo.user_id = current_user.id
+    @artigo.data = Time.now.utc
     respond_to do |format|
       if @artigo.save
         format.html { redirect_to @artigo, notice: 'Artigo was successfully created.' }
@@ -69,6 +70,6 @@ class ArtigosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artigo_params
-      params.require(:artigo).permit(:titulo, :data, :conteudo, :user_id)
+      params.require(:artigo).permit(:titulo, :data, :conteudo, :user_id,:subtitulo)
     end
 end

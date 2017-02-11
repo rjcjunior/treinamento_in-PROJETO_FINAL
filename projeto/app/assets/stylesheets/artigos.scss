@@ -1,3 +1,73 @@
 // Place all the styles related to the Artigos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//artigos
+.corpoArtigo{
+    height: 100%;
+}
+h1{
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+.data{
+  border-top: 0.5px solid #b4b4b4;
+  border-bottom: 0.5px solid #b4b4b4;
+  color: #b4b4b4;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 15px;
+  text-align: right;
+}
+.artigo{
+    font-family: 'Dosis', sans-serif;
+    font-size: 17px;
+}
+.botaoEditar{
+    margin-left: 40px;
+    border: 1px solid #b4b4b4;
+    padding: 10px 10px 10px 10px;
+    font-size: 17px;
+    border-radius: 5px;
+    text-align: center;
+    margin-right: 10px;
+}
+.botaoVoltar{
+    border: 1px solid #b4b4b4;
+    padding: 10px 15px 10px 10px;
+    font-size: 17px;
+    border-radius: 5px;
+}
+.field{
+    text-align: center;
+}
+.editarTitulo{
+    width: 800px;
+    height: 30px;
+    font-size: 20px;
+}
+.editarSubtitulo{
+    width: 800px;
+    height: 20px;
+    font-size: 15px;
+}
+.editarConteudo{
+    margin: 0px 50px 0px 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

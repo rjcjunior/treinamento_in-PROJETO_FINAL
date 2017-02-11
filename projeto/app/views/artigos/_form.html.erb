@@ -1,35 +1,20 @@
 <%= form_for(artigo) do |f| %>
-  <% if artigo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(artigo.errors.count, "error") %> prohibited this artigo from being saved:</h2>
-
-      <ul>
-      <% artigo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
-    <%= f.label :titulo %>
-    <%= f.text_field :titulo %>
+    <%= f.label :titulo, class:"labelEditTitulo" %>
+    <%= f.text_field :titulo, class:"editarTitulo" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :subtitulo, class:"labelEditSubtitulo" %>
+    <%= f.text_field :subtitulo, class:"editarSubtitulo" %>
   </div>
 
   <div class="field">
-    <%= f.label :data %>
-    <%= f.datetime_select :data %>
+    <%= f.label :conteudo, class:"labelEditConteudo" %>
+    <%= f.cktext_area :conteudo, :width => 100, class:"editarConteudo" %>
   </div>
-
-  <div class="field">
-    <%= f.label :conteudo %>
-    <%= f.text_area :conteudo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.number_field :user_id %>
-  </div>
+  
 
   <div class="actions">
     <%= f.submit %>

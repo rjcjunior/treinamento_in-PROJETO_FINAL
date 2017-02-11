@@ -1,16 +1,21 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-html{
+		html{
 			width: 100%;
 			height: auto;
 			margin-top: 0px !important;
 			
 		}
-		body{
+		//Pagina Login
+		.bodyLogin{
 			background-image: url(fundologin.jpg);
 			background-repeat: repeat-y;
 			background-size: cover;
+			width: 100%;
+			height: 100%;
+			margin: 0px;
+			
 		}
 		header{			
 			
@@ -100,11 +105,5 @@ html{
 			color: #696969;
 
 		}
-		footer{
-			height: 150px;
-			width: 100%;
-			background-color: black;
-			text-align: center;
-			color: #696969;
-			padding-top: 50px;
-		}
+		
+		
