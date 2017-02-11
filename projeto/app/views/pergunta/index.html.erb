@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pergunta</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Data</th>
+      <th>Conteudo</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pergunta.each do |perguntum| %>
+      <tr>
+        <td><%= perguntum.titulo %></td>
+        <td><%= perguntum.data %></td>
+        <td><%= perguntum.conteudo %></td>
+        <td><%= perguntum.user_id %></td>
+        <td><%= link_to 'Show', perguntum %></td>
+        <td><%= link_to 'Edit', edit_perguntum_path(perguntum) %></td>
+        <td><%= link_to 'Destroy', perguntum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Perguntum', new_perguntum_path %>

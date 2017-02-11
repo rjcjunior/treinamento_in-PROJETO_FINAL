@@ -1,0 +1,1 @@
+json.array! @user_artigos, partial: 'user_artigos/user_artigo', as: :user_artigo

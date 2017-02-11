@@ -1,0 +1,2 @@
+module UserArtigosHelper
+end

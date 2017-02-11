@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   def new
   end
   
+  
   def create
         
         user = User.find_by(email: params[:session][:email].downcase)
@@ -25,7 +26,7 @@ class SessionsController < ApplicationController
   
   def destroy
     log_out
-    redirect_to users_path
+    redirect_to :root
   end
   
   private 

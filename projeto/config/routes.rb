@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :user_artigos
+  resources :resposta
+  resources :pergunta
+  resources :artigos
   get 'sessions/new'
   root to: "sessions#new"
   

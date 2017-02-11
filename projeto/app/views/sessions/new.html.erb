@@ -1,28 +1,29 @@
 <% provide(:title, "Login") %>
 
 <html>
+	<style>
+@import url('https://fonts.googleapis.com/css?family=Yellowtail');
+<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+</style>
 <body>
 	<header>
-		<img src="logo-branca-mini-2.png" class="logo">
+		<img src="app/assets/images/logo-branca-mini-2.png" class="logo">
 		<p class="textLogo">kipedia</p>
     <div class="login">
             <%= form_for(:session, url: login_path) do |f| %>
 			<%= f.label :email, class:"labelEmail" %>
-			<br>
-            <%= f.text_field :email %>
-			<br>
-			<%= f.label :password, class:"senha" %>
-			<br>
-            <%= f.password_field :password %>
-			<br>
-            <%= f.submit "Log in", class:"botaologin" %>
+            <%= f.text_field :email, class:"email"%>
+			<%= f.label :password, class:"labelSenha" %>
+            <%= f.password_field :password, class:"senha" %>
+            <br>
+            <%= f.submit "Log in", class:"botaoLogin" %>
 			<br>
 			<div class="esqueceuSenha">
 				Esqueceu a senha? <a href="">Clique aqui</a>
 			</div>
 
         <% end %>
-</div>
+	</div>
 	</header>
 		
 </body>

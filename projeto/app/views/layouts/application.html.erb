@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Projeto</title>
+     <title><%= yield(:title) %> | Inkipedia</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,13 @@
   </head>
 
   <body>
+    <%if ((logged_in?))%>
+        <%= render 'layouts/header' %>
+    <% end%>
     <%= yield %>
+    <%if ((logged_in?))%>
+        <%= render 'layouts/footer'%>
+    <% end%>
+    
   </body>
 </html>

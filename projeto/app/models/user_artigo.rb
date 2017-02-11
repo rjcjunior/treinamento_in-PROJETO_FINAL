@@ -1,0 +1,2 @@
+class UserArtigo < ApplicationRecord
+end
