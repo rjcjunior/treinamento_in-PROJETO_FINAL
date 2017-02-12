@@ -5,25 +5,27 @@
 .corpoArtigo{
     height: 100%;
 }
-h1{
+.titulo h1{
     font-size: 40px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     
 }
+.artigoData{
+    border-top: 1px solid #b4b4b4;
+    border-bottom: 1px solid #b4b4b4;
+}
 .data{
-  border-top: 0.5px solid #b4b4b4;
-  border-bottom: 0.5px solid #b4b4b4;
-  color: #b4b4b4;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 15px;
   text-align: right;
 }
 .artigo{
-    font-family: 'Dosis', sans-serif;
-    font-size: 17px;
+//    font-family: 'Dosis', sans-serif;
+//    font-size: 17px;
+    all: unset;
+    margin-left: 100px;
+    margin-right: 100px;
 }
+
 .botaoEditar{
     margin-left: 40px;
     border: 1px solid #b4b4b4;
@@ -39,22 +41,38 @@ h1{
     font-size: 17px;
     border-radius: 5px;
 }
+//Pagina de criar/editar artigo
 .field{
+    
     text-align: center;
 }
 .editarTitulo{
-    width: 800px;
+    width: 950px;
     height: 30px;
     font-size: 20px;
+    background-color: white;
+    border: 1px solid #b4b4b4;
+    border-radius: 5px;
+    margin-bottom: 15px;
 }
 .editarSubtitulo{
-    width: 800px;
-    height: 20px;
+    width: 950px;
+    height: 25px;
     font-size: 15px;
+    background-color: white;
+    border: 1px solid #b4b4b4;
+    border-radius: 5px;
+    margin-bottom: 15px;
 }
-.editarConteudo{
-    margin: 0px 50px 0px 50px;
+.fieldConteudo{
+    margin: 0px 200px 20px 200px;
+    text-align: center;
 }
+.actions{
+    
+    text-align: center;
+}
+
 
 
 

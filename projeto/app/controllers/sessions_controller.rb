@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   
-  before_action :nao_logado, :only => [:new, :create]
-  
+
   def new
   end
   
@@ -29,13 +28,6 @@ class SessionsController < ApplicationController
     redirect_to :root
   end
   
-  private 
-  
-    def nao_logado
-      if logged_in?
-        flash.now[:danger] = "Voce já está logado"
-        redirect_to users_path
-      end  
-    end
+
 
 end

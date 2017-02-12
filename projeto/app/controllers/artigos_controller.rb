@@ -1,6 +1,6 @@
 class ArtigosController < ApplicationController
   before_action :set_artigo, only: [:show, :edit, :update, :destroy]
-  
+  before_action :authorize
   # GET /artigos
   # GET /artigos.json
   def index
@@ -45,6 +45,9 @@ class ArtigosController < ApplicationController
       if @artigo.update(artigo_params)
         format.html { redirect_to @artigo, notice: 'Artigo was successfully updated.' }
         format.json { render :show, status: :ok, location: @artigo }
+        if @current_user.id != @artigo.user_id #Verificando q se o criador do artigo for igual ao que está colaborando 
+          colaborador = UserArtigo.create(:user_id => @current_user.id, :artigo_id => @artigo.id) #criar um novo colaborador
+        end
       else
         format.html { render :edit }
         format.json { render json: @artigo.errors, status: :unprocessable_entity }

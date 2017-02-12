@@ -1,6 +1,6 @@
 class RespostaController < ApplicationController
   before_action :set_respostum, only: [:show, :edit, :update, :destroy]
-
+  before_action :authorize
   # GET /resposta
   # GET /resposta.json
   def index
@@ -25,7 +25,8 @@ class RespostaController < ApplicationController
   # POST /resposta.json
   def create
     @respostum = Respostum.new(respostum_params)
-
+    @respostum.user_id = current_user.id
+    @respostum.data = Time.now.utc
     respond_to do |format|
       if @respostum.save
         format.html { redirect_to @respostum, notice: 'Respostum was successfully created.' }

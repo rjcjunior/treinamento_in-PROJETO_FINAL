@@ -9,11 +9,13 @@
   </head>
 
   <body>
-    <%if ((logged_in?))%>
+    <%if (logged_in?)%>
         <%= render 'layouts/header'%>
-    <% end%>
+    <%end%>
+    
     <%= yield %>
-    <%if ((logged_in?))%>
+    
+    <%if (logged_in?)==true%>
         <%= render 'layouts/footer'%>
     <% end%>
     

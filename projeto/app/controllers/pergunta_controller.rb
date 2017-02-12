@@ -1,6 +1,6 @@
 class PerguntaController < ApplicationController
   before_action :set_perguntum, only: [:show, :edit, :update, :destroy]
-
+  before_action :authorize
   # GET /pergunta
   # GET /pergunta.json
   def index
@@ -25,7 +25,8 @@ class PerguntaController < ApplicationController
   # POST /pergunta.json
   def create
     @perguntum = Perguntum.new(perguntum_params)
-
+    @perguntum.user_id = current_user.id
+    @perguntum.data = Time.now.utc
     respond_to do |format|
       if @perguntum.save
         format.html { redirect_to @perguntum, notice: 'Perguntum was successfully created.' }

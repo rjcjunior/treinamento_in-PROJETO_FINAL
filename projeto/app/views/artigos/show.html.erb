@@ -5,32 +5,22 @@
 <p id="notice"><%= notice %></p>
 
 
-<p>
+<div class="titulo">
   <h1>
     <%= @artigo.titulo %>
   </h1>
+</div>
 
-</p>
-
-<p class="artigoData">
-  <div  class="criador">
+<div class="linha artigoData">
     Criado por:
     <%= @artigo.user.nome %>
-  </div>
-  <div class="data">
     <%= @artigo.data.strftime("%d/%m/%Y às %H:%M") %>
-  </div>
-</p>
+<div>
 
 <div class="artigo">
-  
   <%= raw @artigo.conteudo %>
 </div>
 
-<p>
-  
-  
-</p>
 
 <%= link_to 'Editar', edit_artigo_path(@artigo), class:"botaoEditar" %> 
 <%= link_to 'Voltar', artigos_path, class:"botaoVoltar" %>

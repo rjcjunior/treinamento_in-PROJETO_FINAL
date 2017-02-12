@@ -1,0 +1,51 @@
+# Logfile created on 2017-02-11 21:03:44 -0200 by logger.rb/53141
+D, [2017-02-11T21:03:44.828131 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-vhd0cp.JPG'
+W, [2017-02-11T21:03:44.830187 #21651]  WARN -- : DRAGONFLY: setting magic attribute for width to nil in <Dragonfly Attachment uid=nil, app=:ckeditor> because got error Command failed ('identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-vhd0cp.JPG') with exit status 127 and stderr sh: 1: identify: not found
+
+D, [2017-02-11T21:03:44.830386 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-vhd0cp.JPG'
+W, [2017-02-11T21:03:44.831621 #21651]  WARN -- : DRAGONFLY: setting magic attribute for height to nil in <Dragonfly Attachment uid=nil, app=:ckeditor> because got error Command failed ('identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-vhd0cp.JPG') with exit status 127 and stderr sh: 1: identify: not found
+
+D, [2017-02-11T21:03:44.834844 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-vhd0cp.JPG'
+W, [2017-02-11T21:03:44.905237 #21651]  WARN -- : DRAGONFLY: validation of property format of data failed with error Command failed ('identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-vhd0cp.JPG') with exit status 127 and stderr sh: 1: identify: not found
+
+D, [2017-02-11T21:03:44.905634 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-vhd0cp.JPG'
+D, [2017-02-11T21:03:57.312538 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-zittwx.JPG'
+W, [2017-02-11T21:03:57.314305 #21651]  WARN -- : DRAGONFLY: setting magic attribute for width to nil in <Dragonfly Attachment uid=nil, app=:ckeditor> because got error Command failed ('identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-zittwx.JPG') with exit status 127 and stderr sh: 1: identify: not found
+
+D, [2017-02-11T21:03:57.314534 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-zittwx.JPG'
+W, [2017-02-11T21:03:57.315982 #21651]  WARN -- : DRAGONFLY: setting magic attribute for height to nil in <Dragonfly Attachment uid=nil, app=:ckeditor> because got error Command failed ('identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-zittwx.JPG') with exit status 127 and stderr sh: 1: identify: not found
+
+D, [2017-02-11T21:03:57.317860 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-zittwx.JPG'
+W, [2017-02-11T21:03:57.319431 #21651]  WARN -- : DRAGONFLY: validation of property format of data failed with error Command failed ('identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-zittwx.JPG') with exit status 127 and stderr sh: 1: identify: not found
+
+D, [2017-02-11T21:03:57.319638 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-zittwx.JPG'
+D, [2017-02-11T21:04:15.131352 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-cb6wpj.JPG'
+W, [2017-02-11T21:04:15.133189 #21651]  WARN -- : DRAGONFLY: setting magic attribute for width to nil in <Dragonfly Attachment uid=nil, app=:ckeditor> because got error Command failed ('identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-cb6wpj.JPG') with exit status 127 and stderr sh: 1: identify: not found
+
+D, [2017-02-11T21:04:15.133363 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-cb6wpj.JPG'
+W, [2017-02-11T21:04:15.134946 #21651]  WARN -- : DRAGONFLY: setting magic attribute for height to nil in <Dragonfly Attachment uid=nil, app=:ckeditor> because got error Command failed ('identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-cb6wpj.JPG') with exit status 127 and stderr sh: 1: identify: not found
+
+D, [2017-02-11T21:04:15.305069 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-cb6wpj.JPG'
+W, [2017-02-11T21:04:15.307090 #21651]  WARN -- : DRAGONFLY: validation of property format of data failed with error Command failed ('identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-cb6wpj.JPG') with exit status 127 and stderr sh: 1: identify: not found
+
+D, [2017-02-11T21:04:15.307362 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-cb6wpj.JPG'
+D, [2017-02-11T21:04:38.406633 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-1cpa1kf.JPG'
+W, [2017-02-11T21:04:38.408379 #21651]  WARN -- : DRAGONFLY: setting magic attribute for width to nil in <Dragonfly Attachment uid=nil, app=:ckeditor> because got error Command failed ('identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-1cpa1kf.JPG') with exit status 127 and stderr sh: 1: identify: not found
+
+D, [2017-02-11T21:04:38.408498 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-1cpa1kf.JPG'
+W, [2017-02-11T21:04:38.409915 #21651]  WARN -- : DRAGONFLY: setting magic attribute for height to nil in <Dragonfly Attachment uid=nil, app=:ckeditor> because got error Command failed ('identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-1cpa1kf.JPG') with exit status 127 and stderr sh: 1: identify: not found
+
+D, [2017-02-11T21:04:38.411466 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-1cpa1kf.JPG'
+W, [2017-02-11T21:04:38.412948 #21651]  WARN -- : DRAGONFLY: validation of property format of data failed with error Command failed ('identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-1cpa1kf.JPG') with exit status 127 and stderr sh: 1: identify: not found
+
+D, [2017-02-11T21:04:38.413117 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-1cpa1kf.JPG'
+D, [2017-02-11T21:10:04.055468 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-1k52zfe.JPG'
+W, [2017-02-11T21:10:04.057404 #21651]  WARN -- : DRAGONFLY: setting magic attribute for width to nil in <Dragonfly Attachment uid=nil, app=:ckeditor> because got error Command failed ('identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-1k52zfe.JPG') with exit status 127 and stderr sh: 1: identify: not found
+
+D, [2017-02-11T21:10:04.057587 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-1k52zfe.JPG'
+W, [2017-02-11T21:10:04.058839 #21651]  WARN -- : DRAGONFLY: setting magic attribute for height to nil in <Dragonfly Attachment uid=nil, app=:ckeditor> because got error Command failed ('identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-1k52zfe.JPG') with exit status 127 and stderr sh: 1: identify: not found
+
+D, [2017-02-11T21:10:04.106029 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-1k52zfe.JPG'
+W, [2017-02-11T21:10:04.108106 #21651]  WARN -- : DRAGONFLY: validation of property format of data failed with error Command failed ('identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-1k52zfe.JPG') with exit status 127 and stderr sh: 1: identify: not found
+
+D, [2017-02-11T21:10:04.108482 #21651] DEBUG -- : DRAGONFLY: shell command: 'identify' '-ping' '-format' '%m %w %h' '/tmp/RackMultipart20170211-21651-1k52zfe.JPG'

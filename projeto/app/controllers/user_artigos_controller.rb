@@ -1,6 +1,6 @@
 class UserArtigosController < ApplicationController
   before_action :set_user_artigo, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, except: [:new, :create]
+  before_action :authorize
   # GET /user_artigos
   # GET /user_artigos.json
   def index
@@ -36,7 +36,8 @@ class UserArtigosController < ApplicationController
       end
     end
   end
-
+  
+  
   # PATCH/PUT /user_artigos/1
   # PATCH/PUT /user_artigos/1.json
   def update
