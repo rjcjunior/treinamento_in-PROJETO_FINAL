@@ -5,8 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
-
+gem 'sunspot_rails'
+group :development do
+    gem 'sunspot_solr'
+end
+gem 'will_paginate', '~> 3.1.1'
 # Para as fontes
 gem "font-awesome-rails"
 # Usando para o editor do post

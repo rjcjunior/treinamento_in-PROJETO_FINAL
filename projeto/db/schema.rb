@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170211223723) do
+ActiveRecord::Schema.define(version: 20170213152112) do
 
   create_table "artigos", force: :cascade do |t|
     t.string   "titulo"
@@ -38,22 +38,13 @@ ActiveRecord::Schema.define(version: 20170211223723) do
     t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
   end
 
-  create_table "pergunta", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
     t.string   "titulo"
-    t.datetime "data"
     t.text     "conteudo"
-    t.integer  "user_id"
+    t.datetime "data"
+    t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "resposta", force: :cascade do |t|
-    t.datetime "data"
-    t.text     "conteudo"
-    t.integer  "user_id"
-    t.integer  "pergunta_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "user_artigos", force: :cascade do |t|
@@ -72,6 +63,22 @@ ActiveRecord::Schema.define(version: 20170211223723) do
     t.datetime "updated_at",      null: false
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+  end
+
+  create_table "votos_artigos", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "artigo_id"
+    t.boolean  "votoArtigo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "votos_posts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.boolean  "votoPost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

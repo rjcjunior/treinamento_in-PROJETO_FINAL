@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
+  resources :votos_artigos
+  resources :votos_posts
+  resources :posts
   mount Ckeditor::Engine => '/ckeditor'
   get 'password_resets/new'
 
   get 'password_resets/edit'
-  
+
   resources :user_artigos
-  resources :resposta
-  resources :pergunta
   resources :artigos
   get 'sessions/new'
   root to: "sessions#new"

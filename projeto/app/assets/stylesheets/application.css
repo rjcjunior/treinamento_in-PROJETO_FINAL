@@ -14,3 +14,129 @@
  *= require_self
  *= require font-awesome
 */
+
+.navbar-default h5 {
+	color: #eee;
+	margin: 0 26px;
+	margin-top: 26px;
+}
+
+/* UPPER MENU */
+.navbar {
+	margin-bottom: 0px !important;
+}
+
+.navbar-default .container-fluid {
+	background-color: #06c;
+	border: none;
+}
+
+.navbar .navbar-nav {
+	display: inline-block;
+	float: none;
+	vertical-align: top;
+}
+
+.nav li a {
+	padding: 0px 0px;
+	margin-right: 20px;
+}
+
+.nav li a:focus, .nav li a:hover {
+	text-decoration: none;
+	background-color: black;
+}
+
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+	background-color: black;
+	border-color: white;
+}
+
+.navbar-nav li {
+	padding-top: 0;
+	padding-bottom: 0;
+	line-height: 0;
+	font-weight: bold;
+}
+
+.navbar-default .navbar-nav li a{
+	padding: 0;
+}
+
+.navbar-form.navbar-left {
+	margin-top: 16px;
+}
+
+.navbar-right .dropdown-menu {
+	left: 0 !important;
+}
+
+.dropdown-menu {
+	background-color: white;
+	border: 1px solid #b4b4b4;
+	border-radius: 3px;
+	font-size: 12px;
+	min-width: 176px !important;
+	padding: 10px 10px;
+}
+
+.dropdown-menu li a {
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid transparent;
+	margin-left: 16px;
+	padding: 0;
+	transition: .3s;
+}
+
+.dropdown-menu li a:focus {
+	color: #06c !important;
+	background-color: transparent;
+	transition: .3s;
+}
+
+.dropdown-menu li a:hover {
+	color: #06c !important;
+	background-color: transparent;
+	border-bottom: 1px solid #06c;
+	transition: .3s;
+}
+
+.portrait {
+	border: 2px solid #696969;
+}
+
+.nav-icon {
+	color: #eee;
+	font-size: 24px;
+	margin-top: 20px;
+}
+
+/* LOWER MENU */
+.navbar-inverse {
+  border: none !important;
+	background-color: transparent !important;
+}
+
+.navbar-inverse .navbar-right {
+	margin-right: 160px;
+	margin-top: 15px;
+}
+
+.navbar-inverse .navbar-right li a{
+	border: 1px solid #696969;
+	border-radius: 3px;
+	color: #696969 !important;
+	padding: 5px 10px;
+	transition: .5s;
+}
+
+.navbar-inverse .navbar-right li a:hover {
+	background-color: #06c !important;
+	color: #eee !important;
+	transition: .5s;
+}
+
+.navbar-inverse .navbar-right li a:focus{
+	background-color: #06c;
+	transition: .5s;	
+}

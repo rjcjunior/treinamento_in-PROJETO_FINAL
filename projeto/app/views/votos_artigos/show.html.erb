@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @votos_artigo.user_id %>
+</p>
+
+<p>
+  <strong>Artigo:</strong>
+  <%= @votos_artigo.artigo_id %>
+</p>
+
+<p>
+  <strong>Votoartigo:</strong>
+  <%= @votos_artigo.votoArtigo %>
+</p>
+
+<%= link_to 'Edit', edit_votos_artigo_path(@votos_artigo) %> |
+<%= link_to 'Back', votos_artigos_path %>

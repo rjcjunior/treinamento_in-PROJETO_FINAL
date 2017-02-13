@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Votos Artigos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Artigo</th>
+      <th>Votoartigo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @votos_artigos.each do |votos_artigo| %>
+      <tr>
+        <td><%= votos_artigo.user_id %></td>
+        <td><%= votos_artigo.artigo_id %></td>
+        <td><%= votos_artigo.votoArtigo %></td>
+        <td><%= link_to 'Show', votos_artigo %></td>
+        <td><%= link_to 'Edit', edit_votos_artigo_path(votos_artigo) %></td>
+        <td><%= link_to 'Destroy', votos_artigo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Votos Artigo', new_votos_artigo_path %>

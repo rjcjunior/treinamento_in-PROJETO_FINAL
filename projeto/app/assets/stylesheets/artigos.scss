@@ -4,7 +4,6 @@
 //artigos
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
 .paginaArtigo{
-   
    margin: 0px;
    background-size: cover;
 }
@@ -19,9 +18,21 @@
     text-align: center;
     font-family: 'Montserrat', sans-serif;
 }
-
+.criador{
+    border-top: 1px solid #b4b4b4;
+    border-bottom: 1px solid #b4b4b4;
+    padding: 7px 0px 7px 0px;
+    font-size: 15px;
+    color: #b4b4b4;
+    float: left;
+}
 .data{
-  text-align: right;
+    border-top: 1px solid #b4b4b4;
+    border-bottom: 1px solid #b4b4b4;
+    padding: 7px 0px 7px 0px;
+    font-size: 15px;
+    color: #b4b4b4;
+    text-align: right;
 }
 .artigo{
     all: unset;
@@ -46,6 +57,9 @@
     font-size: 17px;
     border-radius: 5px;
     
+}
+.botoesViewArtigo{
+    text-align:center;
 }
 //Pagina de criar artigo
 .paginaNovoArtigo{
@@ -92,7 +106,7 @@
 #paginaArtigos{
     padding-bottom: 30px;
 }
-#tituloArtigos{
+#tituloPaginaArtigos{
     text-align: center;
     font-size: 60px;
     font-family: 'Abril Fatface', cursive;
@@ -127,6 +141,9 @@
 }
 .classe{
     width: 50%;
+}
+.artigosTitulo{
+    float: left;
 }
 //Pagina de editar artigo
 .paginaEditarArtigo{

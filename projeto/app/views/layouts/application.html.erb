@@ -15,8 +15,7 @@
     <%if (logged_in?) and (request.original_url != root_url)%>
         <%= render 'layouts/header'%>
     <%end%>
-    
-    <%= yield %>
+        <%= yield %>
     
     <%if (logged_in?) and (request.original_url != root_url)%>
         <%= render 'layouts/footer'%>

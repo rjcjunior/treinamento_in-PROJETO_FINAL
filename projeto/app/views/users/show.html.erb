@@ -1,25 +1,40 @@
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Nome:</strong>
-  <%= @user.nome %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
-
-<p>
-  <strong>Is adm:</strong>
-  <%= @user.is_adm %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<section id="perfilUsuario">
+  <div class="container">
+    <div class="col-md-3 perfilOpcoes">
+      <%= image_tag "lobo_icon.jpg", class: "fotoUsuario" %>
+        <p id="nomeUsuario">
+          <%= @user.nome %>
+        </p>
+        <div>
+          <%= link_to 'Perfil do Usuário' %>
+        </div>
+        <div>
+          <%= link_to 'Estatisticas' %>
+        </div>
+        
+    </div>
+    <div class="col-md-9 perfil"> 
+      <p id="notice"><%= notice %></p>
+  
+      
+      
+      <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </p>
+      
+      <p>
+        <strong>Password digest:</strong>
+        <%= @user.password_digest %>
+      </p>
+      
+      <p>
+        <strong>Is adm:</strong>
+        <%= @user.is_adm %>
+      </p>
+      
+      <%= link_to 'Edit', edit_user_path(@user) %> |
+      <%= link_to 'Back', users_path %>
+    </div>
+  </div>
+</section>

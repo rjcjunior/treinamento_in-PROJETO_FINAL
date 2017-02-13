@@ -5,7 +5,7 @@
 </style>
 <p id="notice"><%= notice %></p>
 
-<section id="secaoArtigo">
+<section id="secaoArtigo" class="container">
 <div class="titulo">
   <h1>
     <%= @artigo.titulo %>
@@ -13,29 +13,40 @@
 </div>
 
 <div class="linha artigoData">
-    Criado por:
-    <%= @artigo.user.nome %>
+    <div class="col-md-6 criador">
+      Criado por:
+    <strong><%= @artigo.user.nome %></strong>
+    em
     <%= @artigo.data.strftime("%d/%m/%Y às %H:%M") %>
+    </div>
+    
+    <div class="col-md-6 data">
+
     
     <% if UserArtigo.exists?(:artigo_id => @artigo.id) %> <!-- verificar se houve modificação-->
       <%colaborador = UserArtigo.where(artigo_id:@artigo.id).order(:updated_at).first%> <!-- Pegar o ultimo colaborador-->
       <% User.all.each do |usuario| %>
           <%if usuario.id == colaborador.user_id %>
-               Ultima modificação feita por <%= usuario.nome  %>  <!--Exibir o nome do ultimo colaborador-->
+               Ultima modificação 
                <%= colaborador.updated_at.strftime("%d/%m/%Y às %H:%M") %> <!--Exibir a hora da ultima modificação colaborador-->
+              por  <strong><%= usuario.nome  %>  <!--Exibir o nome do ultimo colaborador--></strong>
               <% break %>
           <%end %>
       <%end %>
     <%end %>
+    </div>
+    
 
-<div>
+</div>
 
 <div class="artigo">
   <%= raw @artigo.conteudo %>
 </div>
 
+<div class=botoesViewArtigo>
+  <%= link_to 'Editar', edit_artigo_path(@artigo), class:"botaoEditar" %> 
+  <%= link_to 'Voltar', artigos_path, class:"botaoVoltar" %>
+</div>
 
-<%= link_to 'Editar', edit_artigo_path(@artigo), class:"botaoEditar" %> 
-<%= link_to 'Voltar', artigos_path, class:"botaoVoltar" %>
 </section>
 </html>

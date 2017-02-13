@@ -3,9 +3,10 @@ class User < ApplicationRecord
     has_secure_password
     before_save { self.nome = nome.downcase }
     has_many :artigo
-    has_many :perguntum
-    has_many :respostum
+    has_many :post
     has_many :user_artigo
+    has_many :votos_artigo, dependent: :destroy
+    has_many :votos_post, dependent: :destroy
     
     # Sets the password reset attributes.
     def create_reset_digest

@@ -1,0 +1,2 @@
+module VotosArtigosHelper
+end

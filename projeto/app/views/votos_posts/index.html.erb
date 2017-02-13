@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Votos Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Post</th>
+      <th>Votopost</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @votos_posts.each do |votos_post| %>
+      <tr>
+        <td><%= votos_post.user_id %></td>
+        <td><%= votos_post.post_id %></td>
+        <td><%= votos_post.votoPost %></td>
+        <td><%= link_to 'Show', votos_post %></td>
+        <td><%= link_to 'Edit', edit_votos_post_path(votos_post) %></td>
+        <td><%= link_to 'Destroy', votos_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Votos Post', new_votos_post_path %>

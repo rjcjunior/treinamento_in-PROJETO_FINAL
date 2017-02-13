@@ -1,0 +1,1 @@
+json.partial! "votos_posts/votos_post", votos_post: @votos_post
