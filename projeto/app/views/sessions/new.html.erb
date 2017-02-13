@@ -1,4 +1,4 @@
-<% provide(:title, "Login") %>
+<% provide(:title, "Login")  %>
 
 <html>
 	<style>
@@ -7,14 +7,25 @@
 </style>
 <body class="bodyLogin">
 	<header>
-		<img src="app/assets/images/logo-branca-mini-2.png" class="logo">
+		<%= image_tag "logo-branca-mini-2.png", class: "logo" %>
 		<p class="textLogo">kipedia</p>
-    <div class="login">
-            <%= form_for(:session, url: login_path) do |f| %>
-			<%= f.label :email, class:"labelEmail" %>
-            <%= f.text_field :email, class:"email"%>
-			<%= f.label :password, class:"labelSenha" %>
-            <%= f.password_field :password, class:"senha" %>
+    	<div class="login">
+  
+        <%= form_for(:session, url: login_path) do |f| %>
+	        <div>
+	        	<%= f.label :email, class:"labelEmail" %>
+
+	        </div>
+	        <div>
+	        	<%= f.text_field :email, class:"email"%>
+	        </div>
+            <div>
+            	<%= f.label :password, class:"labelSenha" %>
+            </div>
+			<div>
+				 <%= f.password_field :password, class:"senha" %>
+			</div>
+           
             <br>
             <%= f.submit "Log in", class:"botaoLogin" %>
 			<br>

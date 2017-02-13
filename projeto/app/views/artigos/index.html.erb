@@ -1,8 +1,11 @@
+<section id=paginaArtigos>
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+
 
 <p id="notice"><%= notice %></p>
 
-<h1>Todos os Artigos</h1>
+<h1 id="tituloArtigos">Artigos</h1>
+ 
 
 <table id="artigos">
   <thead>
@@ -23,7 +26,7 @@
         <td><%= link_to artigo.titulo, artigo %></td>
         <td><%= artigo.data.strftime("%d/%m/%Y às %H:%M") %></td>
         <td><%=  artigo.subtitulo %></td>
-        <td><%= artigo.user.nome %></td>
+        <td><%=  link_to artigo.user.nome, artigo.user %></td>
         <% if (current_user.is_adm == true) %>
           <td><%= link_to 'Destroy', artigo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
@@ -35,7 +38,24 @@
 <br>
 
 <script>$(document).ready( function () {
-    $('#artigos').DataTable();
-} );</script>
+  $('#artigos').DataTable({
+    "order": [[ 2, "desc" ]]
+  });
+});
+</script>
+<div class="divBotao">
+  <%= link_to 'Novo Artigo', new_artigo_path, class:"botaoNovoArtigo" %>
+</div>
 
-<%= link_to 'New Artigo', new_artigo_path %>
+<div class="container sumarioArtigos">
+  <h3><%= link_to artigo.titulo, artigo %></h3>
+  <div>
+    <%=  artigo.subtitulo %>
+  </div>
+  <div>
+    <%= artigo.data.strftime("%d/%m/%Y às %H:%M") %>
+    
+  </div>
+</div>
+
+</section>

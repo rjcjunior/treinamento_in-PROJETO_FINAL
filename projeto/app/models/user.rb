@@ -17,5 +17,13 @@ class User < ApplicationRecord
     def send_password_reset_email
         UserMailer.password_reset(self).deliver_now
     end
-
+    def User.digest(string)
+        cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+        BCrypt::Password.create(string, cost: cost)
+    end
+    def User.new_token
+        SecureRandom.urlsafe_base64
+    end
+  
 end

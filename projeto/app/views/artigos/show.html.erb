@@ -1,10 +1,11 @@
+<html class="paginaArtigo">
 <style>
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import url('https://fonts.googleapis.com/css?family=Dosis');
-</style> 
+</style>
 <p id="notice"><%= notice %></p>
 
-
+<section id="secaoArtigo">
 <div class="titulo">
   <h1>
     <%= @artigo.titulo %>
@@ -15,6 +16,18 @@
     Criado por:
     <%= @artigo.user.nome %>
     <%= @artigo.data.strftime("%d/%m/%Y às %H:%M") %>
+    
+    <% if UserArtigo.exists?(:artigo_id => @artigo.id) %> <!-- verificar se houve modificação-->
+      <%colaborador = UserArtigo.where(artigo_id:@artigo.id).order(:updated_at).first%> <!-- Pegar o ultimo colaborador-->
+      <% User.all.each do |usuario| %>
+          <%if usuario.id == colaborador.user_id %>
+               Ultima modificação feita por <%= usuario.nome  %>  <!--Exibir o nome do ultimo colaborador-->
+               <%= colaborador.updated_at.strftime("%d/%m/%Y às %H:%M") %> <!--Exibir a hora da ultima modificação colaborador-->
+              <% break %>
+          <%end %>
+      <%end %>
+    <%end %>
+
 <div>
 
 <div class="artigo">
@@ -24,3 +37,5 @@
 
 <%= link_to 'Editar', edit_artigo_path(@artigo), class:"botaoEditar" %> 
 <%= link_to 'Voltar', artigos_path, class:"botaoVoltar" %>
+</section>
+</html>

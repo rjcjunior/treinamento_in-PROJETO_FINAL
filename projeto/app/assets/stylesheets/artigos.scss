@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //artigos
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+.paginaArtigo{
+   
+   margin: 0px;
+   background-size: cover;
+}
+#secaoArtigo{
+    padding-bottom: 30px;
+}
 .corpoArtigo{
     height: 100%;
 }
@@ -9,21 +18,16 @@
     font-size: 40px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    
 }
-.artigoData{
-    border-top: 1px solid #b4b4b4;
-    border-bottom: 1px solid #b4b4b4;
-}
+
 .data{
   text-align: right;
 }
 .artigo{
-//    font-family: 'Dosis', sans-serif;
-//    font-size: 17px;
     all: unset;
     margin-left: 100px;
     margin-right: 100px;
+    margin-bottom: 100px;
 }
 
 .botaoEditar{
@@ -34,19 +38,25 @@
     border-radius: 5px;
     text-align: center;
     margin-right: 10px;
+    
 }
 .botaoVoltar{
     border: 1px solid #b4b4b4;
     padding: 10px 15px 10px 10px;
     font-size: 17px;
     border-radius: 5px;
+    
 }
-//Pagina de criar/editar artigo
+//Pagina de criar artigo
+.paginaNovoArtigo{
+    background-color: #F5F5F5;
+    margin: 0px;
+}
 .field{
     
     text-align: center;
 }
-.editarTitulo{
+.novoTitulo{
     width: 950px;
     height: 30px;
     font-size: 20px;
@@ -54,8 +64,9 @@
     border: 1px solid #b4b4b4;
     border-radius: 5px;
     margin-bottom: 15px;
+    margin-top: 10px;
 }
-.editarSubtitulo{
+.novoSubtitulo{
     width: 950px;
     height: 25px;
     font-size: 15px;
@@ -72,8 +83,60 @@
     
     text-align: center;
 }
+.hNovoArtigo{
+    margin: 40px 0px 10px 200px;
+    font-family: 'Montserrat', sans-serif;
+}
 
-
+//Pagina principal de artigos
+#paginaArtigos{
+    padding-bottom: 30px;
+}
+#tituloArtigos{
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Abril Fatface', cursive;
+    font-weight: lighter;
+    border-top: double black;
+    border-bottom: double black;
+    padding: 40px 0px 40px 0px;
+}
+.divBotao{
+    text-align: center;
+}
+.botaoNovoArtigo{
+    text-decoration: none;
+    color: #06c;
+    border: 4px solid #06c;
+    border-color: #06c;
+    padding: 10px 10px 10px 10px;
+    font-size: 17px;
+    font-weight: bolder;
+    text-align: center;
+    transition: 1.5s;
+    background: linear-gradient(to left, white 50%, #06c 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+}
+.botaoNovoArtigo:hover{
+    transition: 1.5s;
+    color: white;
+    background-position: left bottom;
+    text-decoration: none;
+    
+}
+.classe{
+    width: 50%;
+}
+//Pagina de editar artigo
+.paginaEditarArtigo{
+    background-color: #F5F5F5;
+    margin: 0px;
+}
+#hEditarArtigo{
+    margin: 40px 0px 10px 200px;
+    font-family: 'Montserrat', sans-serif;
+}
 
 
 

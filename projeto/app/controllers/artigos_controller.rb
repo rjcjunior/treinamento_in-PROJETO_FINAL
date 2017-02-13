@@ -37,7 +37,7 @@ class ArtigosController < ApplicationController
       end
     end
   end
-
+  
   # PATCH/PUT /artigos/1
   # PATCH/PUT /artigos/1.json
   def update
@@ -47,6 +47,7 @@ class ArtigosController < ApplicationController
         format.json { render :show, status: :ok, location: @artigo }
         if @current_user.id != @artigo.user_id #Verificando q se o criador do artigo for igual ao que está colaborando 
           colaborador = UserArtigo.create(:user_id => @current_user.id, :artigo_id => @artigo.id) #criar um novo colaborador
+          @ultimcolab = colaborador
         end
       else
         format.html { render :edit }
@@ -64,6 +65,7 @@ class ArtigosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

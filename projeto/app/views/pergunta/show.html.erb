@@ -12,13 +12,14 @@
 
 <p>
   <strong>Conteudo:</strong>
-  <%= @perguntum.conteudo %>
+  <%= raw @perguntum.conteudo %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @perguntum.user_id %>
+  <strong>Usuario:</strong>
+  <%= @perguntum.user.nome %>
 </p>
+
 
 <%= link_to 'Edit', edit_perguntum_path(@perguntum) %> |
 <%= link_to 'Back', pergunta_path %>

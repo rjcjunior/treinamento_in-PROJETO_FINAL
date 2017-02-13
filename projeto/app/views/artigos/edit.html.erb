@@ -1,6 +1,13 @@
-<h1>Editing Artigo</h1>
-
-<%= render 'form', artigo: @artigo %>
-
-<%= link_to 'Show', @artigo %> |
-<%= link_to 'Back', artigos_path %>
+<html class="paginaEditarArtigo">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat');
+    </style>
+    <div class="paginaEditarArtigo">
+        <h1 id="hEditarArtigo">Editing Artigo</h1>
+        
+        <%= render 'form', artigo: @artigo %>
+        
+        <%= link_to 'Show', @artigo %> |
+        <%= link_to 'Back', artigos_path %>
+    </div>
+</html>
