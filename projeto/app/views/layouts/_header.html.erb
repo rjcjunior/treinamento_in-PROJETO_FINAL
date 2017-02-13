@@ -3,6 +3,7 @@
 			<div class="container-fluid">
 
 				<div class="navbar-header">
+          <%=link_to  image_tag("inkipedia_white.jpg"), :root %>
 				</div>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -19,16 +20,7 @@
 
 					<li><h5>Olá <%= current_user.nome %></h5></li>
 
-					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><img class="portrait" src="assets/lobo_icon.jpg" alt="INkipedia"></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Perfil</a></li>
-							<li><a href="#">Sair</a></li>
-						</ul>
-					</li>
-
-					<li><a href="#"><i class="nav-icon glyphicon glyphicon-envelope"></i></a></li>
-
-					<li><a href="#"><i class="nav-icon glyphicon glyphicon-bell"></i></a></li>
+				  <%= link_to image_tag("lobo_icon.jpg"), current_user %>
 
 				</ul>
 			</div>
@@ -37,10 +29,8 @@
 		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="home_injunior.html">Arquivo</a></li>
-					<li><a href="home_injunior.html">Artigos</a></li>
-					<li><a href="sobre_injunior.html">Perguntas</a></li>
-					<li><a href="equipe_injunior.html">Tags</a></li>
+					<li><%= link_to "Artigos", artigos_url %></li>
+					<li><%= link_to "Posts", posts_url %></li>
 				</ul>
 			</div>
 		</nav>

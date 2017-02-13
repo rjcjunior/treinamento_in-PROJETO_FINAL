@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
     belongs_to :user
-    has_many :post_artigo, dependent: :destroy
+    has_many :votos_post, dependent: :destroy
 
 end

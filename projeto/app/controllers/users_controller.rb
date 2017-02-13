@@ -6,8 +6,10 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+   
   end
-
+  # GET /users/search
+  # GET /users/search.xml
 
   # GET /users/1
   # GET /users/1.json

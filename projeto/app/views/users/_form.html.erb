@@ -1,42 +1,88 @@
-<%= form_for(user) do |f| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<section id="perfilUsuario">
+  <div class="container">
+    <div class="col-md-3 perfilOpcoes">
+      <%= image_tag "lobo_icon.jpg", class: "fotoUsuario" %>
+        <p id="nomeUsuario">
+          <%= @user.nome %>
+        </p>
+        <div id="botaoPerfilUsuario">
+          <%= link_to 'Perfil' %>
+        </div>
+        <div id="botaoPerfilEstatistica">
+          <%= link_to 'Estatisticas' %>
+        </div>
+        <div id="botaoEditarPerfil">
+          <%= link_to 'Editar Perfil', edit_user_path(@user) %>
+        </div>
+      
+      
+  </div>
+    <div class="col-md-9 perfil"> 
+      <h2 id="tituloEditarPerfil">Editar Perfil</h2>
+      <%= form_for(user) do |f| %>
+        <% if user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      
+            <ul>
+            <% user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+      
+      
+        
+        <div class="field">
+          <div class="col-md-5 labelEditarPerfil">
+            <%= f.label :nome %>
+          </div>
+          <div class="col-md-7 inputEditarPerfil">
+            <%= f.text_field :nome, class:"inputEditarPerfil2" %>
+          </div>
+          
+          
+        </div>
+      
+        <div class="field">
+          <div class="col-md-5 labelEditarPerfil">
+            <%= f.label :email %>
+          </div>
+          <div class="col-md-7 inputEditarPerfil">
+            <%= f.email_field :email, :pattern => "[a-z0-9._%+-]+[.]+[a-z0-9._%+-]+@injunior.com$", :placeholder => "nome.nome@injunior.com", class:"inputEditarPerfil2" %>
+          </div>
+        </div>
+        
+        <div class="field">
+          <div class="col-md-5 labelEditarPerfil">
+            <%= f.label :"Senha" %>
+          </div>
+          <div class="col-md-7 inputEditarPerfil">
+            <%= f.password_field :password, class:"inputEditarPerfil2" %>
+          </div>  
+        </div>
+      
+        <div class="field">
+          <div class="col-md-5 labelEditarPerfil">
+            <%= f.label :"Confirmar senha" %>
+          </div>
+          <div class="col-md-7 inputEditarPerfil">
+            <%= f.password_field :password_confirmation, class:"inputEditarPerfil2" %>
+          </div>  
+        </div>
+        
+        <div class="field">
+          <%= f.label :is_adm %>
+          <%= f.check_box :is_adm %>
+        </div>
+      
+        <div class="actions">
+          <div class="BotaoSalvar">
+            <%= f.submit  :class => 'botaoSalvarEdicao' %>
+          </div>
+          
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :nome %>
-    <%= f.text_field :nome %>
   </div>
-
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, :pattern => "[a-z0-9._%+-]+[.]+[a-z0-9._%+-]+@injunior.com$", :placeholder => "nome.nome@injunior.com"%>
-  </div>
-  
-  <div class="field">
-    <%= f.label :"Senha" %>
-    <%= f.password_field :password %>
-  </div>
-
-  <div class="field">
-    <%= f.label :"Confirmar senha" %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :is_adm %>
-    <%= f.check_box :is_adm %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</section>

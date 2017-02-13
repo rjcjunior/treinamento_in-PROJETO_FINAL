@@ -71,4 +71,9 @@ class VotosArtigosController < ApplicationController
     def votos_artigo_params
       params.require(:votos_artigo).permit(:user_id, :artigo_id, :votoArtigo)
     end
+    
+    def votar
+      
+      
+    end
 end

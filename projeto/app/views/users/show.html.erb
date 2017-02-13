@@ -5,33 +5,37 @@
         <p id="nomeUsuario">
           <%= @user.nome %>
         </p>
-        <div>
-          <%= link_to 'Perfil do Usuário' %>
+        <div id="botaoPerfilUsuario">
+          <%= link_to 'Perfil' %>
         </div>
-        <div>
+        <div id="botaoPerfilEstatistica">
           <%= link_to 'Estatisticas' %>
         </div>
+        <div id="botaoEditarPerfil">
+          <%= link_to 'Editar Perfil', edit_user_path(@user) %>
+        </div>
+        
         
     </div>
     <div class="col-md-9 perfil"> 
+      <h2 id="headUsuario">Usuário</h2>
+      <%= image_tag "lobo_icon.jpg", class: "fotoUsuario2" %>
       <p id="notice"><%= notice %></p>
-  
-      
-      
-      <p>
-        <strong>Email:</strong>
-        <%= @user.email %>
-      </p>
-      
-      <p>
-        <strong>Password digest:</strong>
-        <%= @user.password_digest %>
-      </p>
-      
-      <p>
-        <strong>Is adm:</strong>
-        <%= @user.is_adm %>
-      </p>
+      <div id="usuarioNome">
+        <p>
+          <strong>Nome:</strong>
+          <br>
+          <%= @user.nome %>
+        </p>
+      </div>
+      <div id="usuarioEmail">
+        <p>
+          <strong>Email:</strong>
+          <br>
+          <%= @user.email %>
+        </p>
+      </div>
+      <h2>Ultimas Postagens</h2>
       
       <%= link_to 'Edit', edit_user_path(@user) %> |
       <%= link_to 'Back', users_path %>

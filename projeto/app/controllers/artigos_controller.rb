@@ -5,8 +5,8 @@ class ArtigosController < ApplicationController
   # GET /artigos.json
   def index
 
-    @artigos = Artigo.paginate(:page => params[:page]).order('created_at DESC')
-  
+    @artigos = Artigo.search(params).paginate(:page => params[:page]).order('created_at DESC')
+      
   end
 
   # GET /artigos/1

@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         
           log_in user
         
-          redirect_to users_path #depois mudar para a dashboard
+          redirect_to '/home' #depois mudar para a dashboard
         
         else
         
@@ -34,7 +34,7 @@ class SessionsController < ApplicationController
     def nao_logado
       if logged_in?
         flash.now[:danger] = "Voce já está logado"
-        redirect_to users_path
+        redirect_to '/home'
       end  
     end
 

@@ -12,15 +12,16 @@
   </h1>
 </div>
 
+<h2><%= calcularPtoArtigos(@artigo) %></h2>
+
 <div class="linha artigoData">
-    <div class="col-md-6 criador">
+    <div class="criador">
       Criado por:
-    <strong><%= @artigo.user.nome %></strong>
-    em
-    <%= @artigo.data.strftime("%d/%m/%Y às %H:%M") %>
+      <strong><%= @artigo.user.nome %></strong>
+      em
+      <%= @artigo.data.strftime("%d/%m/%Y às %H:%M") %>
     </div>
-    
-    <div class="col-md-6 data">
+    <div class="data">
 
     
     <% if UserArtigo.exists?(:artigo_id => @artigo.id) %> <!-- verificar se houve modificação-->
@@ -33,10 +34,11 @@
               <% break %>
           <%end %>
       <%end %>
+    
     <%end %>
+    
     </div>
     
-
 </div>
 
 <div class="artigo">

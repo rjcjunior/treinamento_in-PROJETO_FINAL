@@ -21,6 +21,10 @@
 	margin-top: 26px;
 }
 
+.navbar-right {
+	margin-right: 15px;
+}
+
 /* UPPER MENU */
 .navbar {
 	margin-bottom: 0px !important;
@@ -67,6 +71,7 @@
 	margin-top: 16px;
 }
 
+/*
 .navbar-right .dropdown-menu {
 	left: 0 !important;
 }
@@ -100,6 +105,7 @@
 	border-bottom: 1px solid #06c;
 	transition: .3s;
 }
+*/
 
 .portrait {
 	border: 2px solid #696969;
@@ -118,7 +124,6 @@
 }
 
 .navbar-inverse .navbar-right {
-	margin-right: 160px;
 	margin-top: 15px;
 }
 

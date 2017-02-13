@@ -2,12 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #perfilUsuario{
+    background-color: #F5F5F5;
+}
+#perfilUsuario{
     height: 100%;
     width: 100%;
 }
 .perfilOpcoes{
     background-color: #e0efff;
     height: 100%;
+    padding: 0 !important;
 }
 .container{
     height: 100%;
@@ -21,4 +25,136 @@
 #nomeUsuario{
     text-align: center;
     font-size: 15px;
+}
+#botaoPerfilUsuario{
+    margin-top: 50px;
+    text-align: center;
+    text-decoration: none;
+    border-top: 1px solid #a5d2ff;
+    border-bottom: 1px solid #a5d2ff;
+    width: 100%;
+}
+#botaoPerfilUsuario a{
+    text-align: center;
+    text-decoration: none;
+    padding: 5px 0px 5px 0px;
+    width: 100%;
+    display: inline-block;
+    transition: 0.5s;
+    color: black;
+}
+#botaoPerfilUsuario a:hover{
+    text-decoration: none;
+    background-color: #a5d2ff;
+    transition: 0.5s;
+    color: black;
+}
+#botaoPerfilEstatistica{
+    text-align: center;
+    text-decoration: none;
+    border-bottom: 1px solid #a5d2ff;
+    width: 100%;
+}
+#botaoPerfilEstatistica a{
+    text-align: center;
+    text-decoration: none;
+    padding: 5px 0px 5px 0px;
+    width: 100%;
+    display: inline-block;
+    transition: 0.5s;
+    color: black;
+}
+#botaoPerfilEstatistica a:hover{
+    text-decoration: none;
+    background-color: #a5d2ff;
+    transition: 0.5s;
+    color: black;
+} 
+#botaoEditarPerfil{
+    text-align: center;
+    text-decoration: none;
+    border-bottom: 1px solid #a5d2ff;
+    width: 100%;
+}
+#botaoEditarPerfil a{
+    text-align: center;
+    text-decoration: none;
+    padding: 5px 0px 5px 0px;
+    width: 100%;
+    display: inline-block;
+    transition: 0.5s;
+    color: black;
+}
+#botaoEditarPerfil a:hover{
+    text-decoration: none;
+    background-color: #a5d2ff;
+    transition: 0.5s;
+    color: black;
+}    
+
+
+#headUsuario{
+    margin: 0 !important;
+}
+.perfil{
+    padding: 0px 0px 0px 80px !important;
+    text-align: center;
+    background-color: white;
+    height: 100%;
+}
+h2{
+    margin: 0px;
+    text-align: center;
+    padding: 15px 0px 15px 0px;
+}
+.fotoUsuario2{
+    display: block;
+    margin: 30px auto 20px auto;
+    height: 150px;
+    width: auto;
+}
+
+//Editar Perfil
+.tituloEditarPerfil{
+    margin-bottom: 80px;
+}
+.labelEditarPerfil{
+    text-align: right;
+    padding: 12px 5px 0px 0px !important;
+    height: 49px;
+}
+.inputEditarPerfil{
+    text-align: left;
+    padding: 0 !important;
+    
+}
+.inputEditarPerfil2{
+    background-color: white;
+    border: 1px solid #b4b4b4;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    width: 200px;
+}
+.divBotaoSalvar{
+    text-align: center;
+}
+.botaoSalvarEdicao{
+    text-decoration: none;
+    color: #7ebeff;
+    border: 4px solid #7ebeff;
+    border-color: #7ebeff;
+    padding: 10px 10px 10px 10px;
+    font-size: 17px;
+    font-weight: bolder;
+    text-align: center;
+    transition: 1s;
+    border-radius: 3px;
+}
+.botaoSalvarEdicao:hover{
+    transition: 1s;
+    color: white;
+    text-decoration: none;
+    background-color: #7ebeff;
+    
 }

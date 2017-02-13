@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   get 'password_resets/new'
 
   get 'password_resets/edit'
-
+  
   resources :user_artigos
   resources :artigos
   get 'sessions/new'
   root to: "sessions#new"
-  
+  get '/home', to: 'pages#index'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
