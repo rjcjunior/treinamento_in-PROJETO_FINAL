@@ -44,9 +44,16 @@
     margin-right: 100px;
     margin-bottom: 100px;
 }
-
+.botoesViewArtigo{
+    padding-top: 10px;
+    
+}
+.botoesViewArtigo a{
+    float: left;
+    
+}
 .botaoEditar{
-    margin-left: 40px;
+    margin-left: 20px;
     border: 1px solid #b4b4b4;
     padding: 10px 10px 10px 10px;
     font-size: 17px;
@@ -54,16 +61,24 @@
     text-align: center;
     margin-right: 10px;
     background-color: white;
+    transition: 2s;
 }
-.botaoEditar:hover span {display:none}
+.botaoEditar .lapis{
+    display: none;
+}
+.botaoEditar:hover .editar {display:none}
+.botaoEditar:hover .lapis {
+    display: inline-block;
+    transition: 2s;
+    padding-left: 14.5px;
+    padding-right: 14.5px;
+}
 .botaoEditar:hover:before {
-    content:"\f040";
-    font-family: FontAwesome;
-    padding: 5px 15px;
     color: #06c;
+    
 }
 .botaoVoltar{
-    margin-left: 40px;
+    margin-left: 90px;
     border: 1px solid #b4b4b4;
     padding: 10px 10px 10px 10px;
     font-size: 17px;
@@ -71,19 +86,31 @@
     text-align: center;
     margin-right: 10px;
     background-color: white;
+    transition: 2s;
 }
-.botaoVoltar .fa-arrow-left{
+.botaoVoltar .seta{
     display: none;
 }
 .botaoVoltar:hover .voltar {display:none}
-.botaoEditar:hover:before {
-    content:"\f040";
-    font-family: FontAwesome;
-    padding: 5px 15px;
+.botaoVoltar:hover .seta {
+    display: inline-block;
+    transition: 2s;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+.botaoVoltar:hover:before {
     color: #06c;
+    
 }
 .botoesViewArtigo{
     text-align:center;
+}
+.botoesVotacao{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.qntdVotos{
+    text-align: center;
 }
 .fa-thumbs-o-up{
     color: #06c;
@@ -91,6 +118,7 @@
     border-radius: 5px;
     padding: 15px;
     transition: 1s;
+    margin-right: 20px;
 }
 .fa-thumbs-o-up:hover{
     color: white;
@@ -106,6 +134,19 @@
     transition: 1s;
 }
 .fa-thumbs-o-down:hover{
+    color: white;
+    border: 2px solid red;
+    background-color: red;
+    transition: 1s;
+}
+#curtir {
+    color: white;
+    border: 2px solid green;
+    background-color: green;
+    transition: 1s;
+}
+
+#descurtir{
     color: white;
     border: 2px solid red;
     background-color: red;
@@ -144,8 +185,11 @@
     text-align: center;
 }
 .actions{
-    
+    text-decoration: none;
+    background-color: transparent;
     text-align: center;
+    font-size: 17px;
+    font-family: 'Muli', sans-serif;
 }
 .hNovoArtigo{
     margin: 40px 0px 10px 200px;

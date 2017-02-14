@@ -1,5 +1,38 @@
-<h1>New User</h1>
 
-<%= render 'form', user: @user %>
+<section class="perfilUsuario">
+    <div class="container">
+        <div class="col-md-3 perfilOpcoes" id="pegarAltOp">
+          <%= image_tag "lobo_icon.jpg", class: "fotoUsuario" %>
+            <p class="nomeUsuario">
+              <%= @user.nome %>
+            </p>
+            <div class="botaoPerfilUsuario">
+              <%= link_to 'Perfil',user_path(@current_user) %>
+            </div>
+            <div class="botaoPerfilEstatistica">
+              <%= link_to 'Estatisticas' %>
+            </div>
+            <div class="botaoEditarPerfil">
+              <%= link_to 'Editar Perfil', edit_user_path(@current_user.id) %>
+            </div>
+            <div class="botaoAdmUsuarios">
+              <%= link_to 'Usuários', users_path %>
+            </div>
+          
+          
+        </div>
+        <div class="col-md-9 perfil" id="pegarAlt">
+            <h2 id="tituloEditarPerfil">Novo Usuário</h2>
 
-<%= link_to 'Back', users_path %>
+            <%= render 'form', user: @user %>
+            <div class="voltarUsuario">
+            <%= link_to '<i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>'.html_safe, users_path, class:"voltarUsuario" %>
+            </div>
+        </div>
+    </div>
+    <script>
+    
+    $('#pegarAltOp').height($('#pegarAlt').height());
+  </script>
+  <div class="clear"></div>
+</section>

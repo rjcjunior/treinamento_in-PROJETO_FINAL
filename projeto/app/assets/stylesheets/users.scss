@@ -5,14 +5,21 @@
 @import url('https://fonts.googleapis.com/css?family=Bitter');
 
 .perfilUsuario{
-    height: auto;
     width: 100%;
     background-color: #F5F5F5;
+ 
+}
+.container{
+    margin-bottom: 0px;
 }
 .perfilOpcoes{
     background-color: #e0efff;
     padding: 0 !important;
+    margin-bottom: 0px;
 }
+.perfil{
+    padding-bottom: 40px;
+}    
 .container{
     height: 100%;
 }
@@ -217,4 +224,60 @@ h2{
     text-decoration: none;
     background-color: #7ebeff;
     
+}
+
+//ADM - Usuarios
+.hADM{
+    font-family: 'Bitter', serif;
+    font-size: 33px;
+}
+.usuarioAdmView{
+    border-bottom: 1px solid #b4b4b4;
+    padding: 10px 0px;
+    font-family:'Muli', sans-serif;
+}
+.usuarioAdmView h4{
+    font-weight: bolder;
+}
+.botoesADM a{
+    transition: 0.5s;
+    margin: 5px;
+}
+.botoesADM a:hover{
+    text-decoration: none;
+    color: #002b56;
+    transition: 0.5s;
+}
+.novoUsuario{
+    text-decoration: none;
+    color: #7ebeff;
+    border: 4px solid #7ebeff;
+    border-color: #7ebeff;
+    padding: 10px 10px 10px 10px;
+    font-size: 17px;
+    font-weight: bolder;
+    text-align: center;
+    transition: 1s;
+    border-radius: 3px;
+    font-family: 'Muli', sans-serif;
+    background-color: white;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+.novoUsuario:hover{
+    transition: 1s;
+    color: white;
+    text-decoration: none;
+    background-color: #7ebeff;
+}
+
+//ADM Novo Usuario
+.voltarUsuario{
+    color: #7ebeff ;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.clear{
+	clear: both;
 }

@@ -1,0 +1,50 @@
+<section class="perfilUsuario">
+  <div class="container">
+    <div class="col-md-3 perfilOpcoes" id="pegarAltOp">
+      <%= image_tag "lobo_icon.jpg", class: "fotoUsuario" %>
+        <p class="nomeUsuario">
+          <%= @current_user.nome %>
+        </p>
+        <div class="botaoPerfilUsuario">
+          <%= link_to 'Perfil', user_path(@current_user) %>
+        </div>
+        <div class="botaoPerfilEstatistica">
+          <%= link_to 'Estatisticas', estatisticas_path  %>
+        </div>
+        <div class="botaoEditarPerfil">
+          <%= link_to 'Editar Perfil', edit_user_path(@current_user) %>
+        </div>
+        <div class="botaoAdmUsuarios">
+          <%= link_to 'Usuários', users_path %>
+        </div>
+        
+        
+    </div>
+    <div class="col-md-9 perfil" id="pegarAlt">
+    <h1>Estatisticas</h1>
+<% if current_user.is_adm ==true %>
+<h2>Geral</h2>
+<br>
+<h3>Artigo</h3>
+<%= bar_chart User.joins(:artigo).group(:nome).count(:titulo), id: "usersa-chart", width: "600px", height: "250px" %>
+<h3>Perguntas</h3>
+<%= bar_chart Post.joins(:user).where(post_id:nil).group(:nome).count(:id), id: "usersp-chart", width: "600px", height: "250px" %>
+<h3>Respostas</h3>
+<%= bar_chart Post.joins(:user).where.not(post_id:nil).group(:nome).count(:id), id: "usersr-chart", width: "600px", height: "250px" %>
+<br>
+<h2>Específico</h2>
+<% end%>
+<h3>Artigo</h3>
+<%= bar_chart({"Artigos Totais" => Artigo.count(:id), "Voce" => Artigo.where(user_id:current_user.id).count(:id) }, id: "usersae-chart", width: "600px", height: "250px") %>
+<h3>Perguntas</h3>
+<%= bar_chart({"Perguntas Totais" => Post.where(post_id:nil).count(:id), "Voce" => Post.where("user_id = ? and post_id = ?", *[@current_user.id, nil]).count(:id) }, id: "userspe-chart", width: "600px", height: "250px") %>
+<h3>Respostas</h3>
+<%= bar_chart({"Respostas Totais" => Post.where.not(post_id:nil).count(:id), "Voce" => Post.where("user_id = ? and post_id != ?", *[@current_user.id, nil]).count(:id) }, id: "usersre-chart", width: "600px", height: "250px") %>
+</div>
+  </div>
+  <script>
+    
+    $('#pegarAltOp').height($('#pegarAlt').height());
+  </script>
+  <div class="clear"></div>
+</section>

@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require ckeditor/init
+//= require Chart.bundle
+//= require chartkick
 //= require jquery_ujs
 //= require_tree

@@ -34,15 +34,7 @@ class VotosArtigosController < ApplicationController
   # PATCH/PUT /votos_artigos/1.json
   def update
     
-    respond_to do |format|
-      if @votos_artigo.update(votos_artigo_params)
-        format.html { redirect_to @votos_artigo, notice: 'Votos artigo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @votos_artigo }
-      else
-        format.html { render :edit }
-        format.json { render json: @votos_artigo.errors, status: :unprocessable_entity }
-      end
-    end
+   @votos_artigo.update(votos_artigo_params)
   end
 
   # DELETE /votos_artigos/1

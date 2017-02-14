@@ -1,32 +1,47 @@
-<h1>Users</h1>
-<% provide(:title, "Usuarios") %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Email</th>
-      <th>Is adm</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.nome %></td>
-        <td><%= user.email %></td>
-        <td><%= user.is_adm %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-  
-
-<br>
-<%= link_to 'Logout',logout_path, method: :delete %>
-<%= link_to 'New User', new_user_path %>
+<section class="perfilUsuario">
+  <div class="container">
+    <div class="col-md-3 perfilOpcoes" id="pegarAltOp">
+      <%= image_tag "lobo_icon.jpg", class: "fotoUsuario" %>
+      <p class="nomeUsuario">
+        <%= @current_user.nome %>
+      </p>
+      <div class="botaoPerfilUsuario">
+        <%= link_to 'Perfil',user_path(@current_user) %>
+      </div>
+      <div class="botaoPerfilEstatistica">
+        <%= link_to 'Estatisticas'  %>
+      </div>
+      <div class="botaoEditarPerfil">
+        <%= link_to 'Editar Perfil', edit_user_path(@current_user) %>
+      </div>
+      <div class="botaoAdmUsuarios">
+        <%= link_to 'Usuários', users_path %>
+      </div>
+    </div>
+    <div class="col-md-9 perfil" id="pegarAlt"> 
+      <h1 class="hADM">Usuários</h1>
+      <% provide(:title, "Usuarios") %>
+      
+      <% @users.each do |user| %>
+      <div class="usuarioAdmView">
+        <h4><%= user.nome %></h4>
+        <p><%= user.email %></p>
+        <p>Administrador:<%= user.is_adm %></p>
+        <div class="botoesADM">
+          <%= link_to 'Mostrar', user %>
+          <%= link_to 'Editar', edit_user_path(user) %>
+          <%= link_to 'Excluir', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+      <% end %>
+      <br>
+      <%= link_to 'Novo Usuário', new_user_path, class:"novoUsuario" %>
+    </div>
+  </div>
+  <script>
+    
+    $('#pegarAltOp').height($('#pegarAlt').height());
+  </script>
+  <div class="clear"></div>
+</section>
 

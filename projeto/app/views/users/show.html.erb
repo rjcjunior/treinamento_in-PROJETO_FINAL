@@ -1,26 +1,26 @@
 <section class="perfilUsuario">
   <div class="container">
-    <div class="col-md-3 perfilOpcoes">
+    <div class="col-md-3 perfilOpcoes" id="pegarAltOp">
       <%= image_tag "lobo_icon.jpg", class: "fotoUsuario" %>
         <p class="nomeUsuario">
           <%= @user.nome %>
         </p>
         <div class="botaoPerfilUsuario">
-          <%= link_to 'Perfil',user_path(@user) %>
+          <%= link_to 'Perfil', user_path(@current_user) %>
         </div>
         <div class="botaoPerfilEstatistica">
-          <%= link_to 'Estatisticas'  %>
+          <%= link_to 'Estatisticas', estatisticas_path  %>
         </div>
         <div class="botaoEditarPerfil">
-          <%= link_to 'Editar Perfil', edit_user_path(@user) %>
+          <%= link_to 'Editar Perfil', edit_user_path(@current_user) %>
         </div>
         <div class="botaoAdmUsuarios">
-          <a>Usuários</a>
+          <%= link_to 'Usuários', users_path %>
         </div>
         
         
     </div>
-    <div class="col-md-9 perfil"> 
+    <div class="col-md-9 perfil" id="pegarAlt"> 
       <h2 id="headUsuario">Usuário</h2>
       <%= image_tag "lobo_icon.jpg", class: "fotoUsuario2" %>
       <p id="notice"><%= notice %></p>
@@ -37,7 +37,7 @@
       <h2 id="headUltimasPostagens">Ultimas Postagens</h2>
             <%aux=1%>
             <%Artigo.order(:created_at).each do|art|%><!--  mostrar 3 ultimos artigos do usuario  -->
-                <% if art.user_id == @current_user.id and aux<=3 %>
+                <% if art.user_id == @user.id and aux<=3 %>
                   <div>
                     <%= link_to art.titulo, art, class:"artigosUsuarioTitulo" %>
                   </div>
@@ -50,7 +50,7 @@
             <% end %>
             <%aux=1%>
             <%Post.order('created_at DESC').each do|poste|%><!--  mostrar 3 ultimas perguntas do usuario  -->
-                      <% if poste.post_id and poste.user_id == @current_user.id and aux<=3 %> <!-- exibir somente perguntas -->
+                      <% if poste.post_id and poste.user_id == @user.id and aux<=3 %> <!-- exibir somente perguntas -->
                           <%= link_to poste.titulo, poste %>
                           <%= poste.user.nome%> em <%= poste.data.strftime("%d/%m/%Y às %H:%M") %>
                           <br>
@@ -60,4 +60,9 @@
 
     </div>
   </div>
+  <script>
+    
+    $('#pegarAltOp').height($('#pegarAlt').height());
+  </script>
+  <div class="clear"></div>
 </section>

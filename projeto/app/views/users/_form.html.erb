@@ -1,24 +1,5 @@
-<section id="perfilUsuario">
-  <div class="container">
-    <div class="col-md-3 perfilOpcoes">
-      <%= image_tag "lobo_icon.jpg", class: "fotoUsuario" %>
-        <p id="nomeUsuario">
-          <%= @user.nome %>
-        </p>
-        <div id="botaoPerfilUsuario">
-          <%= link_to 'Perfil',user_path(@current_user) %>
-        </div>
-        <div id="botaoPerfilEstatistica">
-          <%= link_to 'Estatisticas' %>
-        </div>
-        <div id="botaoEditarPerfil">
-          <%= link_to 'Editar Perfil', edit_user_path(@current_user) %>
-        </div>
-      
-      
-  </div>
-    <div class="col-md-9 perfil"> 
-      <h2 id="tituloEditarPerfil">Editar Perfil</h2>
+     
+
       <%= form_for(user) do |f| %>
         <% if user.errors.any? %>
           <div id="error_explanation">
@@ -84,5 +65,4 @@
           
         </div>
       <% end %>
-  </div>
-</section>
+  

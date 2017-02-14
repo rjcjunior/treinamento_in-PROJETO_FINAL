@@ -1,64 +1,68 @@
-<p id="notice"><%= notice %></p>
+<html class="paginaArtigo">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+</style>
 
-<p>
-  <strong>Titulo:</strong>
-  <%= @post.titulo %>
-</p>
+<section id="secaoArtigo" class="container">
+<div class="titulo">
+  <h1>
+    <%= @post.titulo %>
+  </h1>
+</div>
 
-<p>
-  <strong>Conteudo:</strong>
+<%# <h2><%= calcularPtoArtigos(@artigo) ></h2> %>
+
+<div class="artigo">
   <%= raw @post.conteudo %>
-</p>
+</div>
 
-<p>
-  <strong>Data:</strong>
-  <%= @post.data.strftime("%d/%m/%Y às %H:%M") %>
-</p>
+<div class="container artigoData">
+  <div class="col-md-6 criador">
+    Criado por:
+    <strong><%= @post.user.nome %></strong>
+    em
+    <%= @post.data.strftime("%d/%m/%Y às %H:%M") %>
+  </div>
+</div>
 
-<% if (@post.post_id!=nil)%>
-<p>
-  <strong>Pergunta:</strong>
-  <% aux = @post.post_id %>
-  <%= aux %>
-</p>
-<% end%>
+</section>
+</html>
 
-<p>
-  <strong>Criado por:</strong>
-  <%= @post.user.nome %>
-</p>
+<div class="container-fluid text-center">
+  <%= link_to '<span class="editar">Editar</span><span class="lapis"><i class="fa fa-pencil"></i></span>'.html_safe, edit_post_path(@post), class:"botaoEditar" %>
+</div>
 
-<% if (@post.post_id==nil)%>  <!-- se for = nill é pq é pergunta, se for diferente é pq é resposta -->
-<p>RESPOSTAS</p>
+<% if (@post.post_id==nil)%>  <!-- se nil: pergunta, senão: resposta -->
+<div class="titulo"><h2>n Respostas</h2></div>
 
-<%Post.order('created_at DESC').each do |poste|%> <!-- imprimir respostas -->
-  <% if (@post.id==poste.post_id)%>
-    Titulo: <%=  poste.titulo %>
-    Conteudo: <%=  raw poste.conteudo %>
-    Data: <%=poste.data.strftime("%d/%m/%Y às %H:%M") %>
-    Criado por <%= poste.user.nome%>
-    <br>
+<div class="home-container container-fluid">
+  <%Post.order('created_at ASC').each do |poste|%> <!-- imprimir respostas -->
+    <% if (@post.id==poste.post_id)%>
+       <div class="home-box">
+          <%=  raw poste.conteudo %>
+          <%= poste.user.nome%> em <%=poste.data.strftime("%d/%m/%Y às %H:%M") %>
+          <% if poste.user_id == current_user.id or current_user.is_adm == true %>
+            <td><%= link_to 'Edit', edit_post_path(poste.id) %></td>
+          <% end%>
+          <br>
+        </div>
+    <%end%>
   <%end%>
-<%end%>
-
-<%= form_for :post, url: {action: "create"} do |f| %> <!--Formulario para criar resposta -->
+  
+  <%= form_for :post, url: {action: "create"} do |f| %> <!--Formulario para criar resposta -->
     <div class="field">
-    <%= f.label :titulo %>
-    <%= f.text_field :titulo %>
-  </div>
+      <%= f.label :conteudo %>
+      <%= f.cktext_area :conteudo %>
+    </div>
+    
+    <div class="field">
+      <%= f.hidden_field :post_id, value: @post.id %>
+    </div>
 
-  <div class="field">
-    <%= f.label :conteudo %>
-    <%= f.cktext_area :conteudo %>
-  </div>
-  
-  <div class="field">
-    <%= f.hidden_field :post_id, value: @post.id %>
-  </div>
-
-  <%= f.submit "Postar Resposta"%>
-<% end %>
-<%end%>
-  
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+      <div class="container text-center">
+        <%= link_to '<span class="voltar">Voltar</span><span class="seta"><i class="fa fa-arrow-left"></i></span>'.html_safe, post_path, class:"botaoVoltar post-reset-margin" %>
+        <%= f.submit "Responder", class:"post-button" %><%end%>
+      </div>
+  <%end%>
+</div>

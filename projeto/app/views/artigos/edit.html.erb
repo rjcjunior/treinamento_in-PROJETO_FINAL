@@ -11,6 +11,7 @@
         
         <%= link_to 'Show', @artigo %> |
         <%= link_to 'Back', artigos_path %>
+     <%= link_to 'Excluir', @artigo, method: :delete, data: { confirm: 'Are you sure?' } %>
 
    </div>
    </section>
