@@ -24,22 +24,16 @@ class VotosArtigosController < ApplicationController
   # POST /votos_artigos
   # POST /votos_artigos.json
   def create
+      
       @votos_artigo = VotosArtigo.new(votos_artigo_params)
-  
-      respond_to do |format|
-        if @votos_artigo.save
-          format.html { redirect_to @votos_artigo, notice: 'Votos artigo was successfully created.' }
-          format.json { render :show, status: :created, location: @votos_artigo }
-        else
-          format.html { render :new }
-          format.json { render json: @votos_artigo.errors, status: :unprocessable_entity }
-        end
-      end
+      @votos_artigo.save
+     
   end
 
   # PATCH/PUT /votos_artigos/1
   # PATCH/PUT /votos_artigos/1.json
   def update
+    
     respond_to do |format|
       if @votos_artigo.update(votos_artigo_params)
         format.html { redirect_to @votos_artigo, notice: 'Votos artigo was successfully updated.' }

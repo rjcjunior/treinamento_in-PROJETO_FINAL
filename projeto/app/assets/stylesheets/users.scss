@@ -3,17 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import url('https://fonts.googleapis.com/css?family=Muli');
 @import url('https://fonts.googleapis.com/css?family=Bitter');
-#perfilUsuario{
-    background-color: #F5F5F5;
+
+.perfilUsuario{
     height: auto;
-}
-#perfilUsuario{
-    height: 100%;
     width: 100%;
+    background-color: #F5F5F5;
 }
 .perfilOpcoes{
     background-color: #e0efff;
-    height: 100%;
     padding: 0 !important;
 }
 .container{
@@ -25,12 +22,12 @@
     height: 150px;
     width: auto;
 }
-#nomeUsuario{
+.nomeUsuario{
     text-align: center;
     font-size: 15px;
     font-family: 'Muli', sans-serif;
 }
-#botaoPerfilUsuario{
+.botaoPerfilUsuario{
     margin-top: 50px;
     text-align: center;
     text-decoration: none;
@@ -39,7 +36,7 @@
     width: 100%;
     font-family: 'Muli', sans-serif;
 }
-#botaoPerfilUsuario a{
+.botaoPerfilUsuario a{
     text-align: center;
     text-decoration: none;
     padding: 5px 0px 5px 0px;
@@ -48,20 +45,20 @@
     transition: 0.5s;
     color: black;
 }
-#botaoPerfilUsuario a:hover{
+.botaoPerfilUsuario a:hover{
     text-decoration: none;
     background-color: #a5d2ff;
     transition: 0.5s;
     color: black;
 }
-#botaoPerfilEstatistica{
+.botaoPerfilEstatistica{
     text-align: center;
     text-decoration: none;
     border-bottom: 1px solid #b8dcff;
     width: 100%;
     font-family: 'Muli', sans-serif;
 }
-#botaoPerfilEstatistica a{
+.botaoPerfilEstatistica a{
     text-align: center;
     text-decoration: none;
     padding: 5px 0px 5px 0px;
@@ -70,19 +67,19 @@
     transition: 0.5s;
     color: black;
 }
-#botaoPerfilEstatistica a:hover{
+.botaoPerfilEstatistica a:hover{
     text-decoration: none;
     background-color: #a5d2ff;
     transition: 0.5s;
     color: black;
 } 
-#botaoEditarPerfil{
+.botaoEditarPerfil{
     text-align: center;
     text-decoration: none;
     border-bottom: 1px solid #b8dcff;
     width: 100%;
 }
-#botaoEditarPerfil a{
+.botaoEditarPerfil a{
     text-align: center;
     text-decoration: none;
     padding: 5px 0px 5px 0px;
@@ -92,21 +89,43 @@
     color: black;
     font-family: 'Muli', sans-serif;
 }
-#botaoEditarPerfil a:hover{
+.botaoEditarPerfil a:hover{
     text-decoration: none;
     background-color: #a5d2ff;
     transition: 0.5s;
     color: black;
-}    
+}
+.botaoAdmUsuarios{
+    text-align: center;
+    text-decoration: none;
+    border-bottom: 1px solid #b8dcff;
+    width: 100%;
+}
+.botaoAdmUsuarios a{
+    text-align: center;
+    text-decoration: none;
+    padding: 5px 0px 5px 0px;
+    width: 100%;
+    display: inline-block;
+    transition: 0.5s;
+    color: black;
+    font-family: 'Muli', sans-serif;
+}
+.botaoAdmUsuarios a:hover{
+    text-decoration: none;
+    background-color: #a5d2ff;
+    transition: 0.5s;
+    color: black;
+}
 
 
 #headUsuario{
-    margin: 0 !important;
+    margin: 15px 0px;
     font-family: 'Bitter', serif;
     font-size: 40px;
 }
 .perfil{
-    padding: 0px 0px 0px 80px !important;
+    padding: 0px 0px 0px 80px;
     text-align: center;
     background-color: white;
     height: 100%;
@@ -135,7 +154,20 @@ h2{
     font-size: 17px;
     font-family: 'Muli', sans-serif;
 }
-
+.artigosUsuarioTitulo{
+    color: #0883ff;
+    transition: 0.5s;
+    text-decoration: none;
+    font-size: 20px;
+}
+.artigosUsuarioTitulo:hover{
+    color: #00356a;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.artigosUsuarioData{
+    color: #696969;
+}
 //Editar Perfil
 .tituloEditarPerfil{
     margin-bottom: 80px;
@@ -145,7 +177,7 @@ h2{
 }
 .labelEditarPerfil{
     text-align: right;
-    padding: 12px 5px 0px 0px !important;
+    padding: 12px 5px 0px 0px;
     height: 49px;
     font-family: 'Muli', sans-serif;
 }

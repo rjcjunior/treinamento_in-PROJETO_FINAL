@@ -13,10 +13,12 @@ Rails.application.routes.draw do
   root to: "sessions#new"
   get '/home', to: 'pages#index'
   get '/pesquisa', to: 'pages#pesquisa'
+  get '/estatisticas', to: 'pages#estatisticas'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   post '/votar', to: 'votos_artigos#create'
   post '/responder', to: 'posts#create'
+  post '/alterarvoto', to: 'votos_artigos#update'
   delete '/logout', to: 'sessions#destroy'
   
   resources :users

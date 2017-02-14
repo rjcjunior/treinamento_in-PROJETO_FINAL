@@ -6,13 +6,13 @@
           <%= @user.nome %>
         </p>
         <div id="botaoPerfilUsuario">
-          <%= link_to 'Perfil',user_path(@user) %>
+          <%= link_to 'Perfil',user_path(@current_user) %>
         </div>
         <div id="botaoPerfilEstatistica">
           <%= link_to 'Estatisticas' %>
         </div>
         <div id="botaoEditarPerfil">
-          <%= link_to 'Editar Perfil', edit_user_path(@user) %>
+          <%= link_to 'Editar Perfil', edit_user_path(@current_user) %>
         </div>
       
       
@@ -71,12 +71,12 @@
             <%= f.password_field :password_confirmation, class:"inputEditarPerfil2" %>
           </div>  
         </div>
-        
-        <div class="field">
-          <%= f.label :is_adm %>
-          <%= f.check_box :is_adm %>
-        </div>
-      
+        <% if @current_user.is_adm == true %>
+          <div class="field">
+            <%= f.label :is_adm %>
+            <%= f.check_box :is_adm %>
+          </div>
+        <% end%>
         <div class="actions">
           <div class="BotaoSalvar">
             <%= f.submit  :class => 'botaoSalvarEdicao' %>

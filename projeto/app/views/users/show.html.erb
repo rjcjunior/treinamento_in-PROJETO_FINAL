@@ -1,18 +1,21 @@
-<section id="perfilUsuario">
+<section class="perfilUsuario">
   <div class="container">
     <div class="col-md-3 perfilOpcoes">
       <%= image_tag "lobo_icon.jpg", class: "fotoUsuario" %>
-        <p id="nomeUsuario">
+        <p class="nomeUsuario">
           <%= @user.nome %>
         </p>
-        <div id="botaoPerfilUsuario">
+        <div class="botaoPerfilUsuario">
           <%= link_to 'Perfil',user_path(@user) %>
         </div>
-        <div id="botaoPerfilEstatistica">
+        <div class="botaoPerfilEstatistica">
           <%= link_to 'Estatisticas'  %>
         </div>
-        <div id="botaoEditarPerfil">
+        <div class="botaoEditarPerfil">
           <%= link_to 'Editar Perfil', edit_user_path(@user) %>
+        </div>
+        <div class="botaoAdmUsuarios">
+          <a>Usuários</a>
         </div>
         
         
@@ -32,7 +35,29 @@
           <%= @user.email %>
       </div>
       <h2 id="headUltimasPostagens">Ultimas Postagens</h2>
-    
+            <%aux=1%>
+            <%Artigo.order(:created_at).each do|art|%><!--  mostrar 3 ultimos artigos do usuario  -->
+                <% if art.user_id == @current_user.id and aux<=3 %>
+                  <div>
+                    <%= link_to art.titulo, art, class:"artigosUsuarioTitulo" %>
+                  </div>
+                  <div class="artigosUsuarioData">
+                    <%= art.data.strftime("%d/%m/%Y às %H:%M")  %>
+                  </div>
+                  <br>
+                  <%aux=aux+1%>
+                <% end %>
+            <% end %>
+            <%aux=1%>
+            <%Post.order('created_at DESC').each do|poste|%><!--  mostrar 3 ultimas perguntas do usuario  -->
+                      <% if poste.post_id and poste.user_id == @current_user.id and aux<=3 %> <!-- exibir somente perguntas -->
+                          <%= link_to poste.titulo, poste %>
+                          <%= poste.user.nome%> em <%= poste.data.strftime("%d/%m/%Y às %H:%M") %>
+                          <br>
+                          <%aux=aux+1%>
+                     <%end%>  
+            <%end%>
+
     </div>
   </div>
 </section>

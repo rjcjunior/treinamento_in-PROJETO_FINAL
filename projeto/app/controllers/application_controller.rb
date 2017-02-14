@@ -7,5 +7,11 @@ class ApplicationController < ActionController::Base
           redirect_to root_url
         end
   end
+  def authorize_admin
+    unless @current_user.is_adm
+      redirect_to root_url
+    end
+    #redirects to previous page
+  end
 end
 

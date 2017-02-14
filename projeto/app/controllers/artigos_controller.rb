@@ -12,6 +12,11 @@ class ArtigosController < ApplicationController
   # GET /artigos/1
   # GET /artigos/1.json
   def show
+    @existe = VotosArtigo.exists?(user_id: current_user.id, artigo_id: @artigo.id)
+    
+    @finddown = VotosArtigo.find_by(votoArtigo: false, artigo_id: @artigo.id, user_id: current_user.id)
+    
+    @findup = VotosArtigo.find_by(votoArtigo: true, artigo_id: @artigo.id, user_id: current_user.id)
     
   end
 
@@ -73,6 +78,7 @@ class ArtigosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_artigo
+      
       @artigo = Artigo.find(params[:id])
     end
 
