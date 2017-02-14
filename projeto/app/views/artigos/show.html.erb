@@ -45,27 +45,10 @@
 </div>
 
 
-<h2 id="pontos" class="qntdVotos col-md-4"><%= calcularPtoArtigos(@artigo) %></h2>
 <div class="botoes col-md-12">
-<div class="botoesVotacao col-md-4">
-  <% if !@existe %>
-    <%= link_to '<button id="curtir" class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></button>'.html_safe, votar_path(votos_artigo:{:votoArtigo => true, :artigo_id => @artigo.id, :user_id => current_user.id}), method: :post %>
-  <% elsif !@finddown.nil? %>
-    <%= link_to  '<button id="curtir" class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></button>'.html_safe, alterarvoto_path(votos_artigo:{:votoArtigo => true}, id: @finddown.id), method: :post %>
-  <% else %>
-    <button id="curtir" class="fa fa-thumbs-o-up fa-2x" aria-hidden="true" disabled='disabled'></button>
-  <% end %>
-  
-  <% if !@existe %>
-    <%= link_to '<button id="descurtir" class="fa fa-thumbs-o-down fa-2x" aria-hidden="true"></button>'.html_safe, votar_path(votos_artigo:{:votoArtigo => false, :artigo_id => @artigo.id, :user_id => current_user.id}), method: :post, id: 'down' %>
-  <% elsif !@findup.nil? %>
-    <%= link_to '<button id="descurtir" class="fa fa-thumbs-o-down fa-2x" aria-hidden="true"></button>'.html_safe, alterarvoto_path(votos_artigo:{:votoArtigo => false}, id: @findup.id), method: :post, id: 'down' %>
-  <% else %>
-    <button id="descurtir" class="fa fa-thumbs-o-down fa-2x" aria-hidden="true" disabled='disabled'></button>
-  <% end %>
-</div>
 
-<div class="botoesViewArtigo col-md-8">
+
+<div class="botoesViewArtigo">
     <%= link_to '<span class="voltar">Voltar</span><span class="seta"><i class="fa fa-arrow-left"></i></span>'.html_safe, artigos_path, class:"botaoVoltar" %>
 
      <%= link_to '<span class="editar">Editar</span><span class="lapis"><i class="fa fa-pencil"></i></span>'.html_safe, edit_artigo_path(@artigo), class:"botaoEditar" %>

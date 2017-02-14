@@ -1,6 +1,6 @@
 class VotosPostsController < ApplicationController
   before_action :set_votos_post, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authorize_admin
   # GET /votos_posts
   # GET /votos_posts.json
   def index

@@ -47,6 +47,10 @@ class PostsController < ApplicationController
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
+         if @current_user.id != @post.user_id #Verificando q se o criador do post for igual ao que está colaborando 
+            colaborador = UserPost.create(:user_id => @current_user.id, :post_id => @post.id) #criar um novo colaborador
+            @ultimcolab = colaborador
+         end
       else
         format.html { render :edit }
         format.json { render json: @post.errors, status: :unprocessable_entity }

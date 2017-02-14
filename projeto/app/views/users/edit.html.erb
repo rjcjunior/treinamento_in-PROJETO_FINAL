@@ -14,10 +14,13 @@
             </div>
             <div class="botaoEditarPerfil">
               <%= link_to 'Editar Perfil', edit_user_path(@current_user) %>
-            </div><div class="botaoAdmUsuarios">
-              <%= link_to 'Usuários', users_path %>
+            
             </div>
-          
+            <% if @current_user.is_adm ==true%>
+              <div class="botaoAdmUsuarios">
+                <%= link_to 'Usuários', users_path %>
+              </div>
+            <%end%>
         </div>
         <div class="col-md-9 perfil" id="pegarAlt">
             <h2 id="tituloEditarPerfil">Editar Perfil</h2>

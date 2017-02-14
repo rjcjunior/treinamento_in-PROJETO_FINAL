@@ -14,10 +14,11 @@
         <div class="botaoEditarPerfil">
           <%= link_to 'Editar Perfil', edit_user_path(@current_user) %>
         </div>
-        <div class="botaoAdmUsuarios">
-          <%= link_to 'Usuários', users_path %>
-        </div>
-        
+        <% if @current_user.is_adm ==true%>
+            <div class="botaoAdmUsuarios">
+              <%= link_to 'Usuários', users_path %>
+            </div>
+        <%end%>
         
     </div>
     <div class="col-md-9 perfil" id="pegarAlt"> 
@@ -50,9 +51,13 @@
             <% end %>
             <%aux=1%>
             <%Post.order('created_at DESC').each do|poste|%><!--  mostrar 3 ultimas perguntas do usuario  -->
-                      <% if poste.post_id and poste.user_id == @user.id and aux<=3 %> <!-- exibir somente perguntas -->
-                          <%= link_to poste.titulo, poste %>
+                      <% if poste.post_id==nil and poste.user_id == @user.id and aux<=3 %> <!-- exibir somente perguntas -->
+                      <div>
+                          <%= link_to poste.titulo, poste, class:"artigosUsuarioTitulo" %>
+                      </div>
+                      <div class="artigosUsuarioData">
                           <%= poste.user.nome%> em <%= poste.data.strftime("%d/%m/%Y às %H:%M") %>
+                        </div>
                           <br>
                           <%aux=aux+1%>
                      <%end%>  

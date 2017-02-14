@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_posts
   resources :votos_artigos
   resources :votos_posts
   resources :posts

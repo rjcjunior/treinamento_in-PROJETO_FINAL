@@ -1,6 +1,6 @@
 class VotosArtigosController < ApplicationController
   before_action :set_votos_artigo, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authorize_admin
   # GET /votos_artigos
   # GET /votos_artigos.json
   def index

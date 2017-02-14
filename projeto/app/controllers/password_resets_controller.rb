@@ -1,4 +1,5 @@
 class PasswordResetsController < ApplicationController
+  before_filter :authorize_admin
   def new
   end
   

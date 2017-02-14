@@ -14,34 +14,37 @@
         <div class="botaoEditarPerfil">
           <%= link_to 'Editar Perfil', edit_user_path(@current_user) %>
         </div>
-        <div class="botaoAdmUsuarios">
-          <%= link_to 'Usuários', users_path %>
-        </div>
+        <% if @current_user.is_adm ==true%>
+            <div class="botaoAdmUsuarios">
+              <%= link_to 'Usuários', users_path %>
+            </div>
+        <%end%>
         
         
     </div>
     <div class="col-md-9 perfil" id="pegarAlt">
-    <h1>Estatisticas</h1>
+    <h1 id="h1Estatisticas">Estatísticas</h1>
 <% if current_user.is_adm ==true %>
-<h2>Geral</h2>
+<h2 class="h2Estatisticas">Geral</h2>
 <br>
-<h3>Artigo</h3>
-<%= bar_chart User.joins(:artigo).group(:nome).count(:titulo), id: "usersa-chart", width: "600px", height: "250px" %>
-<h3>Perguntas</h3>
-<%= bar_chart Post.joins(:user).where(post_id:nil).group(:nome).count(:id), id: "usersp-chart", width: "600px", height: "250px" %>
-<h3>Respostas</h3>
-<%= bar_chart Post.joins(:user).where.not(post_id:nil).group(:nome).count(:id), id: "usersr-chart", width: "600px", height: "250px" %>
+<h3 class="h3Estatisticas">Artigo</h3>
+<%= bar_chart User.joins(:artigo).group(:nome).count(:titulo), id: "usersa-chart", width: "600px", height: "250px",  label: "Quantidade"  %>
+<h3 class="h3Estatisticas">Perguntas</h3>
+<%= bar_chart Post.joins(:user).where(post_id:nil).group(:nome).count(:id), id: "usersp-chart", width: "600px", height: "250px",  label: "Quantidade" %>
+<h3 class="h3Estatisticas">Respostas</h3>
+<%= bar_chart Post.joins(:user).where.not(post_id:nil).group(:nome).count(:id), id: "usersr-chart", width: "600px", height: "250px",  label: "Quantidade" %>
 <br>
-<h2>Específico</h2>
+<h2 class="h2Estatisticas">Específico</h2>
 <% end%>
-<h3>Artigo</h3>
-<%= bar_chart({"Artigos Totais" => Artigo.count(:id), "Voce" => Artigo.where(user_id:current_user.id).count(:id) }, id: "usersae-chart", width: "600px", height: "250px") %>
-<h3>Perguntas</h3>
-<%= bar_chart({"Perguntas Totais" => Post.where(post_id:nil).count(:id), "Voce" => Post.where("user_id = ? and post_id = ?", *[@current_user.id, nil]).count(:id) }, id: "userspe-chart", width: "600px", height: "250px") %>
-<h3>Respostas</h3>
-<%= bar_chart({"Respostas Totais" => Post.where.not(post_id:nil).count(:id), "Voce" => Post.where("user_id = ? and post_id != ?", *[@current_user.id, nil]).count(:id) }, id: "usersre-chart", width: "600px", height: "250px") %>
+<h3 class="h3Estatisticas">Artigo</h3>
+<%= bar_chart({"Artigos Totais" => Artigo.count(:id), "Voce" => Artigo.where(user_id:current_user.id).count(:id) }, id: "usersae-chart", width: "600px", height: "250px",  label: "Quantidade") %>
+<h3 class="h3Estatisticas">Perguntas</h3>
+<%= bar_chart({"Perguntas Totais" => Post.where(post_id:nil).count(:id), "Voce" => Post.where(user_id:current_user.id).where(post_id:nil).count(:id) }, id: "userspe-chart", width: "600px", height: "250px",  label: "Quantidade") %>
+<h3 class="h3Estatisticas">Respostas</h3>
+<%= bar_chart({"Respostas Totais" => Post.where.not(post_id:nil).count(:id), "Voce" => Post.where(user_id:current_user.id).where.not(post_id:nil).count(:id) }, id: "usersre-chart", width: "600px", height: "250px",  label: "Quantidade") %>
 </div>
   </div>
+  <div class="padding"></div>
   <script>
     
     $('#pegarAltOp').height($('#pegarAlt').height());

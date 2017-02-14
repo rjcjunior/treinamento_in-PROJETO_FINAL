@@ -11,11 +11,10 @@
   <%= link_to 'Novo Artigo', new_artigo_path, class:" botaoNovoArtigo" %>
 </div>
 
- 
+ <div class="container sumarioArtigos">
   <% @artigos.each do |artigo1| %>
-    <div class="container sumarioArtigos">
-      <div class="col-md-12">
-          <div class="col-md-6">
+    
+          <div class="col-md-6 x">
             <h3 id="artigosTitulo"><%= link_to artigo1.titulo, artigo1 %></h3>
             <div class="col-md-6">
               <%=  artigo1.subtitulo.truncate(30) %>
@@ -25,7 +24,7 @@
             </div>
           </div>
        
-          <div class="col-md-6">
+          <div class="col-md-6 x">
             <h3 id="artigosTitulo"><%= link_to artigo1.titulo, artigo1 %></h3>
             <div class="col-md-6">
               <%=  artigo1.subtitulo.truncate(30) %>
@@ -33,9 +32,9 @@
             <div class="col-md-6 sumarioData">
               <%= artigo1.data.strftime("%d/%m/%Y às %H:%M") %>
             </div>
-          </div>
       </div>
   <% end %>
+  </div>
 
 <%= will_paginate @artigos,:previous_label => '<<',:next_label => '>>', class:"col-md-12 mudancaPaginaArtigo" %>
 
