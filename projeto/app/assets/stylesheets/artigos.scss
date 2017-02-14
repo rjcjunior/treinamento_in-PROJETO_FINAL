@@ -3,12 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //artigos
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+@import url('https://fonts.googleapis.com/css?family=Muli');
+@import url('https://fonts.googleapis.com/css?family=Bitter');
+//Exibe Artigo
 .paginaArtigo{
    margin: 0px;
    background-size: cover;
 }
 #secaoArtigo{
     padding-bottom: 30px;
+    height: auto;
 }
 .corpoArtigo{
     height: 100%;
@@ -21,7 +25,8 @@
 .artigoData{
     border-top: 1px solid #b4b4b4;
     border-bottom: 1px solid #b4b4b4;
-    padding: 7px 0px 7px 0px;
+    padding: 7px 0px !important;
+    margin: 0px !important;
 }
 .criador{
     font-size: 15px;
@@ -48,15 +53,27 @@
     border-radius: 5px;
     text-align: center;
     margin-right: 10px;
-    
+    background-color: white;
+}
+.botaoEditar:hover span {display:none}
+.botaoEditar:hover:before {
+    content:"\f040";
+    font-family: FontAwesome;
+    padding: 5px 15px;
+    color: #06c;
 }
 .botaoVoltar{
     border: 1px solid #b4b4b4;
-    padding: 10px 15px 10px 10px;
+    padding: 10px;
     font-size: 17px;
     border-radius: 5px;
-    
+    background-color: white;
+    width: 60px;
+    font-family: FontAwesome;
 }
+
+
+
 .botoesViewArtigo{
     text-align:center;
 }
@@ -104,6 +121,7 @@
 //Pagina principal de artigos
 #paginaArtigos{
     padding-bottom: 30px;
+    height: auto;
 }
 #tituloPaginaArtigos{
     text-align: center;
@@ -114,20 +132,68 @@
     border-bottom: double black;
     padding: 40px 0px 40px 0px;
 }
-.divBotao{
+#artigosTitulo a{
+    color: black;
+    transition: 0.5s;
+}
+#artigosTitulo a:hover{
+    color: #0883ff;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.sumarioData{
+    color: #b4b4b4;
+    font-family: 'Muli', sans-serif;
+}
+.sumarioArtigos{
+    font-family: 'Muli', sans-serif;
+    border-bottom: 1px solid #e1e1e1;
+    margin-top: 5px;
+}
+.sumarioArtigos h3{
+    font-family: 'Bitter', serif;
+}
+.mudancaPaginaArtigo{
+    margin-top: 20px;
     text-align: center;
+    display: inline-block;
+}
+.mudancaPaginaArtigo a{
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    transition: 0.5s;
+    margin: 0px;
+}
+.mudancaPaginaArtigo  em {
+    background-color: #7ebeff;
+    padding: 10px 15px;
+    color: white;
+}
+.mudancaPaginaArtigo a:hover{
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    background-color: #e1e1e1;
+    transition: 0.5s;
+}
+.divBotao{
+    text-align: right;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 .botaoNovoArtigo{
+    font-family: 'Muli', sans-serif;
     text-decoration: none;
-    color: #06c;
-    border: 4px solid #06c;
-    border-color: #06c;
+    color: #7ebeff;
+    border: 3.5px solid #7ebeff;
+    border-color: #7ebeff;
     padding: 10px 10px 10px 10px;
     font-size: 17px;
     font-weight: bolder;
     text-align: center;
     transition: 1.5s;
-    background: linear-gradient(to left, white 50%, #06c 50%);
+    background: linear-gradient(to left, white 50%, #7ebeff 50%);
     background-size: 200% 100%;
     background-position: right bottom;
 }
@@ -144,17 +210,19 @@
 .artigosTitulo{
     float: left;
 }
+.clear{
+    clear: both;
+}
 //Pagina de editar artigo
 .paginaEditarArtigo{
     background-color: #F5F5F5;
     margin: 0px;
+
 }
 #hEditarArtigo{
     margin: 40px 0px 10px 200px;
     font-family: 'Montserrat', sans-serif;
 }
-
-
 
 
 

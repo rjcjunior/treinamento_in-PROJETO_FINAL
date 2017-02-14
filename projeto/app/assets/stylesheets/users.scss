@@ -1,8 +1,11 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url('https://fonts.googleapis.com/css?family=Muli');
+@import url('https://fonts.googleapis.com/css?family=Bitter');
 #perfilUsuario{
     background-color: #F5F5F5;
+    height: auto;
 }
 #perfilUsuario{
     height: 100%;
@@ -25,14 +28,16 @@
 #nomeUsuario{
     text-align: center;
     font-size: 15px;
+    font-family: 'Muli', sans-serif;
 }
 #botaoPerfilUsuario{
     margin-top: 50px;
     text-align: center;
     text-decoration: none;
-    border-top: 1px solid #a5d2ff;
-    border-bottom: 1px solid #a5d2ff;
+    border-top: 1px solid #b8dcff;
+    border-bottom: 1px solid #b8dcff;
     width: 100%;
+    font-family: 'Muli', sans-serif;
 }
 #botaoPerfilUsuario a{
     text-align: center;
@@ -52,8 +57,9 @@
 #botaoPerfilEstatistica{
     text-align: center;
     text-decoration: none;
-    border-bottom: 1px solid #a5d2ff;
+    border-bottom: 1px solid #b8dcff;
     width: 100%;
+    font-family: 'Muli', sans-serif;
 }
 #botaoPerfilEstatistica a{
     text-align: center;
@@ -73,7 +79,7 @@
 #botaoEditarPerfil{
     text-align: center;
     text-decoration: none;
-    border-bottom: 1px solid #a5d2ff;
+    border-bottom: 1px solid #b8dcff;
     width: 100%;
 }
 #botaoEditarPerfil a{
@@ -84,6 +90,7 @@
     display: inline-block;
     transition: 0.5s;
     color: black;
+    font-family: 'Muli', sans-serif;
 }
 #botaoEditarPerfil a:hover{
     text-decoration: none;
@@ -95,6 +102,8 @@
 
 #headUsuario{
     margin: 0 !important;
+    font-family: 'Bitter', serif;
+    font-size: 40px;
 }
 .perfil{
     padding: 0px 0px 0px 80px !important;
@@ -107,21 +116,38 @@ h2{
     text-align: center;
     padding: 15px 0px 15px 0px;
 }
+#headUltimasPostagens{
+    font-family: 'Bitter', serif;
+    font-size: 33px;
+}
 .fotoUsuario2{
     display: block;
     margin: 30px auto 20px auto;
     height: 150px;
     width: auto;
 }
+#usuarioNome{
+    font-size: 17px;
+    font-family: 'Muli', sans-serif;
+}
+#usuarioEmail{
+    margin-top: 10px;
+    font-size: 17px;
+    font-family: 'Muli', sans-serif;
+}
 
 //Editar Perfil
 .tituloEditarPerfil{
     margin-bottom: 80px;
 }
+.fieldEditarUsuario{
+    margin-top: 50px;
+}
 .labelEditarPerfil{
     text-align: right;
     padding: 12px 5px 0px 0px !important;
     height: 49px;
+    font-family: 'Muli', sans-serif;
 }
 .inputEditarPerfil{
     text-align: left;
@@ -150,6 +176,8 @@ h2{
     text-align: center;
     transition: 1s;
     border-radius: 3px;
+    font-family: 'Muli', sans-serif;
+    background-color: white;
 }
 .botaoSalvarEdicao:hover{
     transition: 1s;

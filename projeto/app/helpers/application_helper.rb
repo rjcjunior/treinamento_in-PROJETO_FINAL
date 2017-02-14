@@ -4,7 +4,7 @@ module ApplicationHelper
         lista = VotosArtigo.where('artigo_id = ?', artigo.id)
         total = 0
         lista.each do |voto|
-             if(voto.voto)
+             if(voto.votoArtigo)
                 total = total + 1
              else
                 total = total - 1

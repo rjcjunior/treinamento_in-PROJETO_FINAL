@@ -5,7 +5,7 @@ class Artigo < ApplicationRecord
     self.per_page = 2
     def self.search(params)
       artigos = all # for not existing params args
-      artigos = artigos.where("titulo like ?", "%#{params[:search]}%") if params[:search]
+      artigos = artigos.where("subtitulo like ?", "%#{params[:search]}%") if params[:search]
       artigos
     end
 end

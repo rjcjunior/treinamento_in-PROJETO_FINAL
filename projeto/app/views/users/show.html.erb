@@ -6,10 +6,10 @@
           <%= @user.nome %>
         </p>
         <div id="botaoPerfilUsuario">
-          <%= link_to 'Perfil' %>
+          <%= link_to 'Perfil',user_path(@user) %>
         </div>
         <div id="botaoPerfilEstatistica">
-          <%= link_to 'Estatisticas' %>
+          <%= link_to 'Estatisticas'  %>
         </div>
         <div id="botaoEditarPerfil">
           <%= link_to 'Editar Perfil', edit_user_path(@user) %>
@@ -22,23 +22,17 @@
       <%= image_tag "lobo_icon.jpg", class: "fotoUsuario2" %>
       <p id="notice"><%= notice %></p>
       <div id="usuarioNome">
-        <p>
-          <strong>Nome:</strong>
+          <strong>Nome</strong>
           <br>
           <%= @user.nome %>
-        </p>
       </div>
       <div id="usuarioEmail">
-        <p>
-          <strong>Email:</strong>
+          <strong>Email</strong>
           <br>
           <%= @user.email %>
-        </p>
       </div>
-      <h2>Ultimas Postagens</h2>
-      
-      <%= link_to 'Edit', edit_user_path(@user) %> |
-      <%= link_to 'Back', users_path %>
+      <h2 id="headUltimasPostagens">Ultimas Postagens</h2>
+    
     </div>
   </div>
 </section>

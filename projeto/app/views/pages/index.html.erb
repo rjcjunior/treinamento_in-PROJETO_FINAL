@@ -1,26 +1,27 @@
 <section>
   <div class="home-container container-fluid">
     <h2>Artigos</h2>
-      <%Artigo.order('created_at DESC').limit(5).each do|art|%>
+      <%Artigo.order(:created_at).limit(5).each do|art|%>
         <div class="home-box">
           <h3><%= link_to art.titulo, art %></h3>
-          <%= art.subtitulo.truncate(100) %>
+          <%= art.subtitulo %>
           <div class="home-date">
-            <%= art.user.nome%> em <%= art.data.strftime("%d/%m/%Y às %H:%M") %>
+            <%= art.user.nome%> - <%= art.data.strftime("%d/%m/%Y às %H:%M") %>
           </div>
         </div>
       <%end%>
   </div>
-
-  <div class="home-container container-fluid">
+<div class="home-container container-fluid">
     <h2>Posts</h2>
       <%Post.order('created_at DESC').limit(5).each do|poste|%>
-        <div class="home-box">
-          <h3><%= link_to poste.titulo, poste %></h3>
-          <div class="home-date">
-            <%= poste.user.nome%> em <%= poste.data.strftime("%d/%m/%Y às %H:%M") %>
+        <% if poste.post_id==nil %> <!-- exibir somente perguntas -->
+          <div class="home-box">
+            <h3><%= link_to poste.titulo, poste %></h3>
+            <div class="home-date">
+              <%= poste.user.nome%> em <%= poste.data.strftime("%d/%m/%Y às %H:%M") %>
+            </div>
           </div>
-        </div>
+        <%end%>  
       <%end%>
-  </div>
+</div>
 </section>

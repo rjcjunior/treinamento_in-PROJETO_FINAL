@@ -16,16 +16,17 @@
 
   <tbody>
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.titulo %></td>
-        <td><%= post.conteudo %></td>
-        <td><%= post.data %></td>
-        <td><%= post.post_id %></td>
-        <td><%=post.user_id %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if post.post_id==nil %> <!-- para exibir somente perguntas-->
+        <tr>
+          <td><%= post.titulo %></td>
+          <td><%= raw post.conteudo %></td>
+          <td><%= post.data %></td>
+          <td><%=post.user.nome %></td>
+          <td><%= link_to 'Show', post %></td>
+          <td><%= link_to 'Edit', edit_post_path(post) %></td>
+          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>  
     <% end %>
   </tbody>
 </table>

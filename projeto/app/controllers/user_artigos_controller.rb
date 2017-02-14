@@ -24,6 +24,7 @@ class UserArtigosController < ApplicationController
   # POST /user_artigos
   # POST /user_artigos.json
   def create
+    
     @user_artigo = UserArtigo.new(user_artigo_params)
 
     respond_to do |format|

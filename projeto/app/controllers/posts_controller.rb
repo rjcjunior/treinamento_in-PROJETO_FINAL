@@ -36,9 +36,11 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+    
   end
+  
 
-  # PATCH/PUT /posts/1
+    # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
     respond_to do |format|

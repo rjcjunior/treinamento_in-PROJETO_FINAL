@@ -24,17 +24,17 @@ class VotosArtigosController < ApplicationController
   # POST /votos_artigos
   # POST /votos_artigos.json
   def create
-    @votos_artigo = VotosArtigo.new(votos_artigo_params)
-
-    respond_to do |format|
-      if @votos_artigo.save
-        format.html { redirect_to @votos_artigo, notice: 'Votos artigo was successfully created.' }
-        format.json { render :show, status: :created, location: @votos_artigo }
-      else
-        format.html { render :new }
-        format.json { render json: @votos_artigo.errors, status: :unprocessable_entity }
+      @votos_artigo = VotosArtigo.new(votos_artigo_params)
+  
+      respond_to do |format|
+        if @votos_artigo.save
+          format.html { redirect_to @votos_artigo, notice: 'Votos artigo was successfully created.' }
+          format.json { render :show, status: :created, location: @votos_artigo }
+        else
+          format.html { render :new }
+          format.json { render json: @votos_artigo.errors, status: :unprocessable_entity }
+        end
       end
-    end
   end
 
   # PATCH/PUT /votos_artigos/1
@@ -60,7 +60,7 @@ class VotosArtigosController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+    
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_votos_artigo
@@ -69,11 +69,7 @@ class VotosArtigosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def votos_artigo_params
-      params.require(:votos_artigo).permit(:user_id, :artigo_id, :votoArtigo)
+        params.require(:votos_artigo).permit(:user_id, :artigo_id, :votoArtigo)
     end
     
-    def votar
-      
-      
-    end
 end

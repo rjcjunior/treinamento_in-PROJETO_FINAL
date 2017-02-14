@@ -14,14 +14,19 @@
 
 <h2><%= calcularPtoArtigos(@artigo) %></h2>
 
-<div class="linha artigoData">
-    <div class="criador">
+<% if !VotosArtigo.exists?(user_id: current_user.id, artigo_id: @artigo.id) %>
+<%= link_to 'Bom', votar_path(votos_artigo:{:votoArtigo => true, :artigo_id => @artigo.id, :user_id => current_user.id}), method: :post %>
+<% end %>
+<button>Ruim</button>
+
+<div class="container artigoData">
+    <div class="col-md-6 criador">
       Criado por:
       <strong><%= @artigo.user.nome %></strong>
       em
       <%= @artigo.data.strftime("%d/%m/%Y às %H:%M") %>
     </div>
-    <div class="data">
+    <div class="col-md-6 data">
 
     
     <% if UserArtigo.exists?(:artigo_id => @artigo.id) %> <!-- verificar se houve modificação-->
@@ -46,8 +51,12 @@
 </div>
 
 <div class=botoesViewArtigo>
-  <%= link_to 'Editar', edit_artigo_path(@artigo), class:"botaoEditar" %> 
-  <%= link_to 'Voltar', artigos_path, class:"botaoVoltar" %>
+    <%= link_to '<i class="fa fa-arrow-left"></i>'.html_safe, artigos_path, class:"botaoVoltar" %>
+  <button class="botaoEditar">
+    <span><%= link_to 'Editar', edit_artigo_path(@artigo) %></span>
+  </button>
+
+  
 </div>
 
 </section>

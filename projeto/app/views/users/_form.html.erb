@@ -6,7 +6,7 @@
           <%= @user.nome %>
         </p>
         <div id="botaoPerfilUsuario">
-          <%= link_to 'Perfil' %>
+          <%= link_to 'Perfil',user_path(@user) %>
         </div>
         <div id="botaoPerfilEstatistica">
           <%= link_to 'Estatisticas' %>
@@ -34,8 +34,8 @@
       
       
         
-        <div class="field">
-          <div class="col-md-5 labelEditarPerfil">
+        <div class="fieldEditarUsuario">
+          <div class="col-md-5 labelEditarPerfil labelEditarPerfilNome">
             <%= f.label :nome %>
           </div>
           <div class="col-md-7 inputEditarPerfil">
