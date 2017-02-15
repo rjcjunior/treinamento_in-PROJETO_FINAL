@@ -4,9 +4,6 @@ Rails.application.routes.draw do
   resources :votos_posts
   resources :posts
   mount Ckeditor::Engine => '/ckeditor'
-  get 'password_resets/new'
-
-  get 'password_resets/edit'
       
   resources :user_artigos
   resources :artigos

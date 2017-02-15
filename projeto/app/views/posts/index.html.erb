@@ -11,6 +11,7 @@
  <div class="container sumarioArtigos">
   <% @postpaginate.each do |post1| %>
     <% if post1.post_id == nil %>    
+      <%if VotosPost.joins(:post).where(post_id:post1.id).where(votoPost:false).count()<10 or @current_user.is_adm==true%> <!-- esconder com 10 neg-->
 
           <div class="col-md-6 x">
             <h3 id="artigosTitulo"><%= link_to post1.titulo, post1 %></h3>
@@ -18,7 +19,7 @@
               <%= post1.data.strftime("%d/%m/%Y às %H:%M") %>
             </div>
           </div>
-
+      <% end %>
     <% end %>  
   <% end %>
   </div>

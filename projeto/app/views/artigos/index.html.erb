@@ -13,15 +13,17 @@
 
   <div class="container sumarioArtigos">
     <% @artigos.each do |artigo1| %>
-      <div class="col-md-6 x">
-        <h3 id="artigosTitulo"><%= link_to artigo1.titulo, artigo1 %></h3>
-        <div class="col-md-6">
-          <%=  artigo1.subtitulo.truncate(30) %>
-        </div>
-        <div class="col-md-6 sumarioData">
-          <%= artigo1.data.strftime("%d/%m/%Y às %H:%M") %>
-        </div>
-      </div>
+      <%if VotosArtigo.joins(:artigo).where(artigo_id:artigo1.id).where(votoArtigo:false).count()<10 or @current_user.is_adm==true%> <!-- esconder com 10 neg-->
+          <div class="col-md-6 x">
+            <h3 id="artigosTitulo"><%= link_to artigo1.titulo, artigo1 %></h3>
+            <div class="col-md-6">
+              <%=  artigo1.subtitulo.truncate(30) %>
+            </div>
+            <div class="col-md-6 sumarioData">
+              <%= artigo1.data.strftime("%d/%m/%Y às %H:%M") %>
+            </div>
+          </div>
+      <%end%>
     <% end %>
   </div>
 

@@ -5,12 +5,14 @@
     <h2 class="tituloPaginasIndex">Posts</h2>
     <% @post.each do |post1|%>
       <% if post1.post_id == nil %>    
+       <%if VotosPost.joins(:post).where(post_id:post1.id).where(votoPost:false).count()<10 or @current_user.is_adm==true%><!-- esconder com 10 neg-->
         <div class="col-md-6 xPesquisa">
           <h3 id="artigosTitulo"><%= link_to post1.titulo, post1 %></h3>
           <div class="col-md-6 sumarioData">
             <%= post1.data.strftime("%d/%m/%Y às %H:%M") %>
           </div>
         </div>
+       <% end %>  
       <% end %>  
     <%end%>
   </div>
@@ -19,6 +21,7 @@
   <div class="container sumarioArtigosPesquisa">
     <h2 class="tituloPaginasIndex">Artigos</h2>
     <% @artigos.each do |artigoaux|%>
+      <%if VotosArtigo.joins(:artigo).where(artigo_id:artigoaux.id).where(votoArtigo:false).count()<10 or @current_user.is_adm==true%><!-- esconder com 10 neg-->
         <div class="col-md-6 xPesquisa">
           <h3 id="artigosTitulo"><%= link_to artigoaux.titulo, artigoaux %></h3>
           <div class="col-md-6">
@@ -28,6 +31,7 @@
             <%= artigoaux.data.strftime("%d/%m/%Y às %H:%M") %>
           </div>
         </div>
+      <%end%>
     <%end%>
   </div>
   <%= will_paginate @artigos,:previous_label => '<<',:next_label => '>>', class:"col-md-12 mudancaPaginaArtigo" %>

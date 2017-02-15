@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+
       @post = Post.search(params)
       @postpaginate =Post.search(params).where(:post_id => nil).paginate(:page => params[:page], :per_page => 10).order('created_at DESC')
   end
