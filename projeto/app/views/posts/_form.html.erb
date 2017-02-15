@@ -1,28 +1,16 @@
+
 <%= form_for(post) do |f| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <%if post.post_id==nil%>
   <div class="field">
-    <%= f.label :titulo %>
-    <%= f.text_field :titulo %>
+    <%= f.text_field :titulo, class:"novoTitulo", placeholder:"Coloque o título aqui", :required => true %>
   </div>
-
-  <div class="field">
-    <%= f.label :conteudo %>
-    <%= f.cktext_area :conteudo %>
+  <% end%>
+  <div class="editBox">
+    <%= f.cktext_area :conteudo, :width => 100, class:"novoConteudo" %>
   </div>
-
+  
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Postar >>" %>
   </div>
 <% end %>

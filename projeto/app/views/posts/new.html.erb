@@ -1,5 +1,12 @@
-<h1>New Post</h1>
-
-<%= render 'form', post: @post %>
-
-<%= link_to 'Back', posts_path %>
+<html class="paginaNovoArtigo">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat');
+    </style>
+    <section class="paginaNovoArtigo">
+        <h1 class="postTitulo text-center">Novo Post</h1>
+        
+        <%= render 'form', post: @post %>
+        
+        <%= link_to 'Back', posts_path %>
+    </section>
+</html>

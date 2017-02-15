@@ -2,6 +2,7 @@ class User < ApplicationRecord
     attr_accessor :remember_token, :activation_token, :reset_token
     has_secure_password
     before_save { self.nome = nome.downcase }
+    validates :nome, :password, :email, presence: true
     has_many :artigo
     has_many :post
     has_many :user_artigo

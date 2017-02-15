@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+      @post = Post.search(params)
+      @postpaginate =Post.where(:post_id => nil).paginate(:page => params[:page], :per_page => 10).order('created_at DESC')
   end
 
   # GET /posts/1
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
     @post.data = Time.now.utc
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to request.referer, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to posts_path, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
          if @current_user.id != @post.user_id #Verificando q se o criador do post for igual ao que está colaborando 
             colaborador = UserPost.create(:user_id => @current_user.id, :post_id => @post.id) #criar um novo colaborador
@@ -78,4 +78,5 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:titulo, :conteudo, :data, :post_id)
     end
+    
 end

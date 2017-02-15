@@ -1,36 +1,32 @@
-<p id="notice"><%= notice %></p>
+<section id=paginaArtigos>
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
 
-<h1>Posts</h1>
+<h1 id="tituloPaginaArtigos">Posts</h1>
+ 
 
-<table>
-  <thead>
-    <tr>
-      <th>Titulo</th>
-      <th>Conteudo</th>
-      <th>Data</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="col-md-12 divBotao">
+  <%= link_to 'Novo Post', new_post_path, class:" botaoNovoArtigo" %>
+</div>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <% if post.post_id==nil %> <!-- para exibir somente perguntas-->
-        <tr>
-          <td><%= link_to post.titulo, post %></td>
-          <td><%= raw post.conteudo %></td>
-          <td><%= post.data %></td>
-          <td><%= post.user.nome %></td>
-          <% if post.user_id == current_user.id or current_user.is_adm == true %>
-            <td><%= link_to 'Edit', edit_post_path(post) %></td>
-            <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <%end%>
-        </tr>
-      <% end %>  
-    <% end %>
-  </tbody>
-</table>
+ <div class="container sumarioArtigos">
+  <% @postpaginate.each do |post1| %>
+    <% if post1.post_id == nil %>    
 
-<br>
+          <div class="col-md-6 x">
+            <h3 id="artigosTitulo"><%= link_to post1.titulo, post1 %></h3>
+            <div class="col-md-6 sumarioData">
+              <%= post1.data.strftime("%d/%m/%Y às %H:%M") %>
+            </div>
+          </div>
 
-<%= link_to 'New Post', new_post_path %>
+    <% end %>  
+  <% end %>
+  </div>
+</div>
+
+<%= will_paginate @postpaginate,:previous_label => '<<',:next_label => '>>', class:"col-md-12 mudancaPaginaArtigo" %>
+
+<div class="clear"></div>
+</section>
+
+

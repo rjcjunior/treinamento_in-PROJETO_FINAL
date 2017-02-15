@@ -1,10 +1,10 @@
 <section>
   <div class="home-container container-fluid">
     <h2>Artigos</h2>
-      <%Artigo.order(:created_at).limit(5).each do|art|%>
+      <%Artigo.order('created_at DESC').limit(5).each do|art|%>
         <div class="home-box">
           <h3><%= link_to art.titulo, art %></h3>
-          <%= art.subtitulo %>
+          <%= art.subtitulo.truncate(40) %>
           <div class="home-date">
             <%= art.user.nome%> - <%= art.data.strftime("%d/%m/%Y às %H:%M") %>
           </div>
@@ -13,15 +13,14 @@
   </div>
 <div class="home-container container-fluid">
     <h2>Posts</h2>
-      <%Post.order('created_at DESC').limit(5).each do|poste|%>
-        <% if poste.post_id==nil %> <!-- exibir somente perguntas -->
+      
+      <%Post.where(:post_id => nil).order('created_at DESC').limit(5).each do|post1|%> <!-- tem que ter o where para pegar somente os 5 posts q sao perguntas -->
           <div class="home-box">
-            <h3><%= link_to poste.titulo, poste %></h3>
+            <h3><%= link_to post1.titulo, post1 %></h3>
             <div class="home-date">
-              <%= poste.user.nome%> em <%= poste.data.strftime("%d/%m/%Y às %H:%M") %>
+              <%= post1.user.nome%> em <%= post1.data.strftime("%d/%m/%Y às %H:%M") %>
             </div>
           </div>
-        <%end%>  
       <%end%>
 </div>
 </section>

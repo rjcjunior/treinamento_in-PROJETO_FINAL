@@ -2,15 +2,15 @@
 <%= form_for(artigo) do |f| %>
 
   <div class="field">
-    <%= f.text_field :titulo, class:"novoTitulo", placeholder:"Coloque o título aqui" %>
+    <%= f.text_field :titulo, class:"novoTitulo", placeholder:"Coloque o título aqui", :required => true %>
   </div>
   
   <div class="field">
-    <%= f.text_field :subtitulo, class:"novoSubtitulo", placeholder:"Coloque o subtítulo aqui" %>
+    <%= f.text_field :subtitulo, class:"novoSubtitulo", placeholder:"Coloque as Tags aqui", :required => true %>
   </div>
 
   <div class="fieldConteudo">
-    <%= f.cktext_area :conteudo, :width => 100, class:"novoConteudo" %>
+    <%= f.cktext_area :conteudo, :width => 100, class:"novoConteudo", :required => true %>
   </div>
   
 

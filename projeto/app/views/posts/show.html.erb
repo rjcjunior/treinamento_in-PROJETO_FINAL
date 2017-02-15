@@ -11,8 +11,6 @@
   </h1>
 </div>
 
-<%# <h2><%= calcularPtoArtigos(@artigo) ></h2> %>
-
 <div class="artigo">
   <%= raw @post.conteudo %>
 </div>
@@ -40,24 +38,37 @@
 </div>
 
 </section>
-</html>
 
 <div class="container-fluid text-center">
   <%= link_to '<span class="editar">Editar</span><span class="lapis"><i class="fa fa-pencil"></i></span>'.html_safe, edit_post_path(@post), class:"botaoEditar" %>
 </div>
 
-
-<div class="titulo"><h2>N Respostas</h2></div>
+<% if @post.post_id == nil%>
+<% contanswer = Post.where(post_id:@post.id).count()%> <!-- contador de respostas-->
+<div class="titulo"><h2><%= contanswer%> Resposta(s)</h2></div>
 
 <div class="home-container container-fluid">
-  <%Post.order('created_at ASC').each do |poste|%> <!-- imprimir respostas -->
-    <% if (@post.id==poste.post_id)%>
+  <%Post.order('created_at DESC').each do |post1|%> <!-- imprimir respostas -->
+    <% if (@post.id==post1.post_id)%>
        <div class="home-box">
-          <%=  raw poste.conteudo %>
-          <%= poste.user.nome%> em <%=poste.data.strftime("%d/%m/%Y às %H:%M") %>
-          <% if poste.user_id == current_user.id or current_user.is_adm == true %>
-            <td><%= link_to 'Edit', edit_post_path(poste.id) %></td>
-          <% end%>
+          <%=  raw post1.conteudo %>
+          <div class="text-right">
+            <%= post1.user.nome%> em <%=post1.data.strftime("%d/%m/%Y às %H:%M") %>
+        
+            <% if UserPost.exists?(:post_id => post1.id) %> <!-- verificar se houve modificação-->
+                  <%colaborador = UserPost.where(post_id:post1.id).order(:updated_at).first%> <!-- Pegar o ultimo colaborador-->
+                  <% User.all.each do |usuario| %>
+                      <%if usuario.id == colaborador.user_id %>
+                           Ultima modificação 
+                           <%= colaborador.updated_at.strftime("%d/%m/%Y às %H:%M") %> <!--Exibir a hora da ultima modificação colaborador-->
+                          por  <strong><%= usuario.nome  %>  <!--Exibir o nome do ultimo colaborador--></strong>
+                          <% break %>
+                      <%end %>
+                  <%end %>
+            <%end %>
+            <td><%= link_to '<span class="editar">Editar</span><span class="lapis"><i class="fa fa-pencil"></i></span>'.html_safe, edit_post_path(post1.id), class:"botaoEditar" %></td>
+            
+          </div>
           <br>
         </div>
     <%end%>
@@ -71,9 +82,12 @@
     <div class="field">
       <%= f.hidden_field :post_id, value: @post.id %>
     </div>
-
+    
       <div class="container text-center">
-        <%= link_to '<span class="voltar">Voltar</span><span class="seta"><i class="fa fa-arrow-left"></i></span>'.html_safe, post_path, class:"botaoVoltar post-reset-margin" %>
-        <%= f.submit "Responder", class:"post-button" %><%end%>
+          <%= link_to '<span class="voltar">Voltar</span><span class="seta"><i class="fa fa-arrow-left"></i></span>'.html_safe, posts_path, class:"botaoVoltar post-reset-margin" %>
+          <%= f.submit "Responder", class:"post-button" %><%end%>
       </div>
 </div>
+<%end%>
+      
+</html>
