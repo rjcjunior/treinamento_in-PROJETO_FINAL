@@ -1,3 +1,8 @@
+.editBG {
+    background-color: #f5f5f5;
+    padding-top: 40px;
+}
+
 .post-button {
     border: 1px solid #b4b4b4;
     padding: 7px 10px;
@@ -16,12 +21,20 @@
 .postTitulo{
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    padding: 40px 0;
 }
 
+.editTitulo{
+    margin-left: 200px;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
 
 .editBox{
     margin: 20px 200px;
     text-align: center;
-    height: 400px;
+}
+
+.editContainer {
+    margin: 15px 110px;
 }

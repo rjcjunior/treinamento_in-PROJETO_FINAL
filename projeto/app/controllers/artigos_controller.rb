@@ -4,6 +4,7 @@ class ArtigosController < ApplicationController
   # GET /artigos
   # GET /artigos.json
   def index
+    
 
     @artigos = Artigo.search(params).paginate(:page => params[:page]).order('created_at DESC')
       
@@ -18,6 +19,19 @@ class ArtigosController < ApplicationController
     
     @findup = VotosArtigo.find_by(votoArtigo: true, artigo_id: @artigo.id, user_id: current_user.id)
     
+  end
+  
+  def votar
+    a = params[:booleano]
+    b = params[:artigo_id]
+    c = params[:user_id]
+    if !VotosArtigo.exists?(user_id: c, artigo_id: b)
+      voto = VotosArtigo.new(:user_id => c, :artigo_id => b, :votoArtigo => a)
+      voto.save
+    else
+      voto = VotosArtigo.find_by(user_id: c, artigo_id: b)
+      voto.update(:user_id => c, :artigo_id => b, :votoArtigo => a)
+    end
   end
 
   # GET /artigos/new

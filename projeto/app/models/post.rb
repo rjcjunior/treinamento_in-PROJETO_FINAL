@@ -6,8 +6,9 @@ class Post < ApplicationRecord
     
     def self.search(params)
       posts = all # for not existing params args
-      posts = posts.where("subtitulo like ?", "%#{params[:search]}%") if params[:search]
+      posts = posts.where("titulo like ?", "%#{params[:search]}%") if params[:search]
       posts
     end
+    
 
 end

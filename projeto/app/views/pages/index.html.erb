@@ -1,26 +1,31 @@
-<section>
-  <div class="home-container container-fluid">
-    <h2>Artigos</h2>
-      <%Artigo.order('created_at DESC').limit(5).each do|art|%>
-        <div class="home-box">
-          <h3><%= link_to art.titulo, art %></h3>
-          <%= art.subtitulo.truncate(40) %>
-          <div class="home-date">
-            <%= art.user.nome%> - <%= art.data.strftime("%d/%m/%Y às %H:%M") %>
-          </div>
+<section id="artigosHome">
+  <div class="container sumarioArtigosHome">
+    <h2 class="tituloPaginasIndex">Novos Artigos</h2>
+    <%Artigo.order('created_at DESC').limit(8).each do|art|%>
+      <div class="col-md-6 xHome">
+        <h3 id="artigosTitulo"><%= link_to art.titulo, art %></h3>
+        <div class="col-md-6">
+        <%= art.subtitulo.truncate(30) %>
         </div>
+        <div class="col-md-6 sumarioData">
+          <%= art.user.nome%> - <%= art.data.strftime("%d/%m/%Y às %H:%M") %>
+        </div>
+      </div>
+    <%end%>
+  </div>
+  <div class="clear"></div>
+</section>  
+<section id="postsHome"> 
+  <div class="container sumarioPostsHome">
+    <h2 class="tituloPaginasIndex">Novos Posts</h2>
+    <%Post.where(:post_id => nil).order('created_at DESC').limit(8).each do|post1|%> <!-- tem que ter o where para pegar somente os 5 posts q sao perguntas -->
+      <div class="col-md-6 xHome">
+        <h3 id="postsTitulo"><%= link_to post1.titulo, post1 %></h3>
+        <div class="col-md-6">
+          <%= post1.user.nome%> em <%= post1.data.strftime("%d/%m/%Y às %H:%M") %>
+        </div>
+      </div>
       <%end%>
   </div>
-<div class="home-container container-fluid">
-    <h2>Posts</h2>
-      
-      <%Post.where(:post_id => nil).order('created_at DESC').limit(5).each do|post1|%> <!-- tem que ter o where para pegar somente os 5 posts q sao perguntas -->
-          <div class="home-box">
-            <h3><%= link_to post1.titulo, post1 %></h3>
-            <div class="home-date">
-              <%= post1.user.nome%> em <%= post1.data.strftime("%d/%m/%Y às %H:%M") %>
-            </div>
-          </div>
-      <%end%>
-</div>
+  <div class="clear"></div>
 </section>

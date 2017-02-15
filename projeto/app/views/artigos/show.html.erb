@@ -6,6 +6,42 @@
 <p id="notice"><%= notice %></p>
 
 <section id="secaoArtigo" class="container">
+
+
+<%= link_to '<button id="curtir">Curtir</button>'.html_safe, votar_path(:booleano => true, :artigo_id => @artigo.id), remote: true%>
+<p><% VotosArtigo.where(user_id: @user.id).count()%> <!-- contador de respostas--></p>
+<%= link_to '<button id="descurtir">Descurtir</button>'.html_safe, votar_path(:booleano => false, :artigo_id => @artigo.id), remote: true%>
+<script>
+
+  <% if @finddown %>
+      $('#descurtir').attr('disabled', true);
+    <% elsif @findup %>
+      $('#curtir').attr('disabled', true);
+    <% end %>
+    
+  $('#curtir').on('click', function(){
+    var qtdVotos = document.getElementById('pontos');
+    if($('#descurtir').attr('disabled')){
+      console.log('lul');
+      $('#descurtir').attr('disabled', false);
+      qtdVotos.innerHTML = Number(qtdVotos.innerHTML) + 2;
+    }
+    var qtdVotos = document.getElementById('pontos');
+    qtdVotos.innerHTML = Number(qtdVotos.innerHTML);
+    this.disabled = true;
+  });
+  
+  $('#descurtir').on('click', function(){
+    var qtdVotos = document.getElementById('pontos');
+    if($('#curtir').attr('disabled')){
+      console.log('lul');
+      $('#curtir').attr('disabled', false);
+      qtdVotos.innerHTML = Number(qtdVotos.innerHTML) - 2;
+    }
+    qtdVotos.innerHTML = Number(qtdVotos.innerHTML);
+    this.disabled = true;
+  });
+</script>
 <div class="titulo">
   <h1>
     <%= @artigo.titulo %>
@@ -49,7 +85,7 @@
 
 
 <div class="botoesViewArtigo">
-    <%= link_to '<span class="voltar">Voltar</span><span class="seta"><i class="fa fa-arrow-left"></i></span>'.html_safe, artigos_path, class:"botaoVoltar" %>
+    <%= link_to '<span class="voltar">Voltar</span><span class="seta"><i class="fa fa-arrow-left"></i></span>'.html_safe, artigos_path, class:"botaoVoltarArtigo" %>
 
      <%= link_to '<span class="editar">Editar</span><span class="lapis"><i class="fa fa-pencil"></i></span>'.html_safe, edit_artigo_path(@artigo), class:"botaoEditar" %>
 

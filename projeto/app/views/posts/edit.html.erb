@@ -1,6 +1,14 @@
-<h1>Editing Post</h1>
+<div class="editBG">
+  <h1 class="editTitulo">Editar Post</h1>
 
-<%= render 'form', post: @post %>
-<%= link_to 'Excluir', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+  <%= render 'form', post: @post %>
+  <div class="editContainer"> 
+      <div class="botaoVoltar col-md-6">
+          <%= link_to '<i class="fa fa-long-arrow-left" aria-hidden="true"></i>Voltar'.html_safe, posts_path, class:"botaoVoltar" %>
+      </div>
+      <div class="botoesMostrarExcluir">
+          <%= link_to '<i class="fa fa-eye fa-lg" aria-hidden="true"></i>'.html_safe, @post %>
+          <%= link_to '<i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>'.html_safe, @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div> 
+  </div>
+</div>

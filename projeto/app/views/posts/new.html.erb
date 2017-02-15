@@ -6,7 +6,8 @@
         <h1 class="postTitulo text-center">Novo Post</h1>
         
         <%= render 'form', post: @post %>
-        
-        <%= link_to 'Back', posts_path %>
+        <div class="botaoVoltar">
+        <%= link_to '<i class="fa fa-long-arrow-left" aria-hidden="true"></i>Voltar'.html_safe, posts_path, class:"botaoVoltar" %>
+        </div>
     </section>
 </html>

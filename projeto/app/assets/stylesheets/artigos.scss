@@ -76,7 +76,7 @@
     color: #06c;
     
 }
-.botaoVoltar{
+.botaoVoltarArtigo{
     border: 1px solid #b4b4b4;
     padding: 10px 10px 10px 10px;
     font-size: 17px;
@@ -86,17 +86,17 @@
     background-color: white;
     transition: 2s;
 }
-.botaoVoltar .seta{
+.botaoVoltarArtigo .seta{
     display: none;
 }
-.botaoVoltar:hover .voltar {display:none}
-.botaoVoltar:hover .seta {
+.botaoVoltarArtigo:hover .voltar {display:none}
+.botaoVoltarArtigo:hover .seta {
     display: inline-block;
     transition: 2s;
     padding-left: 14px;
     padding-right: 14px;
 }
-.botaoVoltar:hover:before {
+.botaoVoltarArtigo:hover:before {
     color: #06c;
     
 }
@@ -193,20 +193,21 @@
     font-family: 'Montserrat', sans-serif;
     padding: 40px;
 }
+.botaoVoltar{
+    color: black;
+    font-size: 17px;
+    margin-bottom: 15px;
+    margin-left: 15px; 
+}
+.botaoVoltar:hover{
+    text-decoration: none;
+    color: black;
+}
 
 //Pagina principal de artigos
 #paginaArtigos{
-    padding-bottom: 30px;
-    height: auto;
-}
-#tituloPaginaArtigos{
-    text-align: center;
-    font-size: 60px;
-    font-family: 'Abril Fatface', cursive;
-    font-weight: lighter;
-    border-top: double black;
-    border-bottom: double black;
-    padding: 40px 0px 40px 0px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 #artigosTitulo a{
     color: black;
@@ -224,6 +225,7 @@
 .sumarioArtigos{
     font-family: 'Muli', sans-serif;
     margin-top: 5px;
+    margin-left: 0px;
 }
 .sumarioArtigos h3{
     font-family: 'Bitter', serif;
@@ -307,6 +309,23 @@
     margin: 0px 0px 20px 200px;
     font-family: 'Montserrat', sans-serif;
     padding-top: 40px;
+}
+.botoesMostrarExcluir{
+    text-align: right;
+}
+.botoesMostrarExcluir a{
+    color: black;
+    font-size: 17px;
+    margin-right: 15px;
+}
+.fa-eye{
+    color: blue;
+}
+.fa-trash-o{
+    color: red;
+}
+.botoesMostrarExcluir a:hover{
+    color: black;
 }
 
 

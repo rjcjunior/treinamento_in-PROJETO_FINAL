@@ -110,7 +110,7 @@ header {
 
 .portrait {
 	border: 2px solid #696969;
-	margin-right: 0;
+	margin-right: 0px;
 }
 
 .input-group{
@@ -121,4 +121,16 @@ header {
 
 .clear{
 	clear: both;
+}
+
+
+
+.tituloPaginasIndex{
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Abril Fatface', cursive;
+    font-weight: lighter;
+    border-top: double black;
+    border-bottom: double black;
+    padding: 40px 0px 40px 0px;
 }

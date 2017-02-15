@@ -6,7 +6,9 @@
         <h1 class="hNovoArtigo">Novo Artigo</h1>
         
         <%= render 'form', artigo: @artigo %>
+        <div class="botaoVoltar">
+            <%= link_to '<i class="fa fa-long-arrow-left" aria-hidden="true"></i>Voltar'.html_safe, artigos_path, class:"botaoVoltar" %>
+        </div>
         
-        <%= link_to 'Back', artigos_path %>
     </section>
 </html>

@@ -50,24 +50,28 @@
 <div class="home-container container-fluid">
   <%Post.order('created_at DESC').each do |post1|%> <!-- imprimir respostas -->
     <% if (@post.id==post1.post_id)%>
-       <div class="home-box">
-          <%=  raw post1.conteudo %>
-          <div class="text-right">
-            <%= post1.user.nome%> em <%=post1.data.strftime("%d/%m/%Y às %H:%M") %>
+      <div class="home-box">
+        <%=  raw post1.conteudo %>
+        <div class="text-right">
+          <strong><%= post1.user.nome%></strong> em <%=post1.data.strftime("%d/%m/%Y às %H:%M") %>
         
-            <% if UserPost.exists?(:post_id => post1.id) %> <!-- verificar se houve modificação-->
-                  <%colaborador = UserPost.where(post_id:post1.id).order(:updated_at).first%> <!-- Pegar o ultimo colaborador-->
-                  <% User.all.each do |usuario| %>
-                      <%if usuario.id == colaborador.user_id %>
-                           Ultima modificação 
-                           <%= colaborador.updated_at.strftime("%d/%m/%Y às %H:%M") %> <!--Exibir a hora da ultima modificação colaborador-->
-                          por  <strong><%= usuario.nome  %>  <!--Exibir o nome do ultimo colaborador--></strong>
-                          <% break %>
-                      <%end %>
-                  <%end %>
-            <%end %>
-            <td><%= link_to '<span class="editar">Editar</span><span class="lapis"><i class="fa fa-pencil"></i></span>'.html_safe, edit_post_path(post1.id), class:"botaoEditar" %></td>
+          <td><%= link_to '<i class="fa fa-pencil"></i></span>'.html_safe, edit_post_path(post1.id), class:"botaoEditar" %></td>
             
+          <% if UserPost.exists?(:post_id => post1.id) %> <!-- verificar se houve modificação-->
+
+            <%colaborador = UserPost.where(post_id:post1.id).order(:updated_at).first%> <!-- Pegar o ultimo colaborador-->
+            <% User.all.each do |usuario| %>
+
+            <%if usuario.id == colaborador.user_id %>
+
+              <br><br>
+              Modificado por <strong><%= usuario.nome  %></strong>
+               em <%= colaborador.updated_at.strftime("%d/%m/%Y às %H:%M") %>
+              <% break %>
+    
+            <%end %>
+          <%end %>
+            <%end %>
           </div>
           <br>
         </div>
@@ -84,8 +88,8 @@
     </div>
     
       <div class="container text-center">
-          <%= link_to '<span class="voltar">Voltar</span><span class="seta"><i class="fa fa-arrow-left"></i></span>'.html_safe, posts_path, class:"botaoVoltar post-reset-margin" %>
-          <%= f.submit "Responder", class:"post-button" %><%end%>
+    <%= link_to '<span class="voltar">Voltar</span><span class="seta"><i class="fa fa-arrow-left"></i></span>'.html_safe, posts_path, class:"botaoVoltarArtigo" %>
+    <%= f.submit "Responder", class:"post-button" %><%end%>
       </div>
 </div>
 <%end%>

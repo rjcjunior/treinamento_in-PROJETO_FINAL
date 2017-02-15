@@ -1,6 +1,36 @@
-Artigos
-<%= form_tag artigos_path, method: :get do %>
-  <%= text_field_tag :search, "" %>
-  <%= submit_tag 'Search' %>
-<% end %>
-Perguntas
+
+
+<section>
+  <div class="container">
+<% @post.each do |post1|%>
+    <% if post1.post_id == nil %>    
+
+          <div class="col-md-6 x">
+            <h3 id="artigosTitulo"><%= link_to post1.titulo, post1 %></h3>
+            <div class="col-md-6 sumarioData">
+              <%= post1.data.strftime("%d/%m/%Y às %H:%M") %>
+            </div>
+          </div>
+
+    <% end %>  
+<%end%>
+</div>
+</section>
+<section id="artigosPesquisa">
+  <div class="container sumarioArtigosPesquisa">
+    <h2 class="tituloPaginasIndex">Artigos</h2>
+    <% @artigos.each do |artigoaux|%>
+        <div class="col-md-6 xPesquisa">
+          <h3 id="artigosTitulo"><%= link_to artigoaux.titulo, artigoaux %></h3>
+          <div class="col-md-6">
+            <%=  artigoaux.subtitulo.truncate(30) %>
+          </div>
+          <div class="col-md-6 sumarioData">
+            <%= artigoaux.data.strftime("%d/%m/%Y às %H:%M") %>
+          </div>
+        </div>
+    <%end%>
+  </div>
+  <%= will_paginate @artigos,:previous_label => '<<',:next_label => '>>', class:"col-md-12 mudancaPaginaArtigo" %>
+
+</section>

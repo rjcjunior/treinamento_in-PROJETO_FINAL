@@ -12,6 +12,8 @@ class VotosArtigosController < ApplicationController
   def show
   end
 
+  
+  
   # GET /votos_artigos/new
   def new
     @votos_artigo = VotosArtigo.new

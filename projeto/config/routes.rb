@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get '/estatisticas', to: 'pages#estatisticas'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  post '/votar', to: 'votos_artigos#create'
+  get '/votar', to: 'artigos#votar'
   post '/responder', to: 'posts#create'
   post '/alterarvoto', to: 'votos_artigos#update'
   delete '/logout', to: 'sessions#destroy'
