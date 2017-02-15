@@ -62,7 +62,11 @@
 <div class="home-box">
   <%=  raw @post.conteudo %>
   <div class="text-right">
-    <strong><%= @post.user.nome%></strong> em <%=@post.data.strftime("%d/%m/%Y às %H:%M") %>
+      <% if !@post.user.nil? %>
+
+      <strong><%= @post.user.nome%></strong> 
+      <%end%>
+      em <%=@post.data.strftime("%d/%m/%Y às %H:%M") %>
 
     <td><%= link_to '<i class="fa fa-pencil"></i></span>'.html_safe, edit_post_path(@post.id), class:"botaoEditar" %></td>
 

@@ -12,7 +12,9 @@
                 </div>
                 <div class="botoesMostrarExcluir">
                     <%= link_to '<i class="fa fa-eye fa-lg" aria-hidden="true"></i>'.html_safe, @artigo %>
-                    <%= link_to '<i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>'.html_safe, @artigo, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <%if @current_user.is_adm==true %>
+                        <%= link_to '<i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>'.html_safe, @artigo, method: :delete, data: { confirm: 'Tem certeza?' } %>
+                    <%end%>
                 </div>    
         </div>
         <div class="clear"></div>
