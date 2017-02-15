@@ -8,7 +8,7 @@
         </p>
         <% a=VotosPost.joins(:post).where(user_id:@user.id).where(votoPost:true).count()+VotosArtigo.joins(:artigo).where(user_id:@user.id).where(votoArtigo:true).count()%>
         <% b=VotosPost.joins(:post).where(user_id:@user.id).where(votoPost:false).count()+VotosArtigo.joins(:artigo).where(user_id:@user.id).where(votoArtigo:false).count()%>
-        <p>pontuação: <%= c=a-b%> </p> <!-- exibir pontuação -->
+        <p class="pontuacao">pontuação: <%= c=a-b%> </p> <!-- exibir pontuação -->
 
         <div class="botaoPerfilUsuario">
           <%= link_to 'Perfil',user_path(@current_user) %>
