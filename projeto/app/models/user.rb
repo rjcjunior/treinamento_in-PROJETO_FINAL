@@ -1,7 +1,6 @@
 class User < ApplicationRecord
     attr_accessor :remember_token, :activation_token, :reset_token
     has_secure_password
-    before_save { self.nome = nome.downcase }
     validates :nome, :password, :email, presence: true
     has_many :artigo
     has_many :post
@@ -27,5 +26,10 @@ class User < ApplicationRecord
     def User.new_token
         SecureRandom.urlsafe_base64
     end
-  
+    
+    def self.search(params)
+      users = all # for not existing params args
+      users = users.where("email like ?", "%#{params[:search]}%") if params[:search]
+      users
+    end
 end

@@ -4,9 +4,14 @@
   <div class="field">
     <%= f.text_field :titulo, class:"novoTitulo", placeholder:"Coloque o título aqui", :required => true %>
   </div>
+  <div class="field">
+    <%= f.text_field :tag, class:"novoSubtitulo", placeholder:"Coloque as tags aqui", :required => true %>
+  </div>
+  
   <% end%>
-  <div class="editBox">
-    <%= f.cktext_area :conteudo, :width => 100, class:"novoConteudo" %>
+    
+  <div class="fieldConteudo">
+    <%= f.cktext_area :conteudo, :width => 100, class:"novoConteudo", :required => true %>
   </div>
   
 

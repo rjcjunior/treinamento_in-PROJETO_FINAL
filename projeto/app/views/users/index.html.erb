@@ -5,6 +5,10 @@
       <p class="nomeUsuario">
         <%= @current_user.nome %>
       </p>
+      <% a=VotosPost.joins(:post).where(user_id:@current_user.id).where(votoPost:true).count()+VotosArtigo.joins(:artigo).where(user_id:@current_user.id).where(votoArtigo:true).count()%>
+      <% b=VotosPost.joins(:post).where(user_id:@current_user.id).where(votoPost:false).count()+VotosArtigo.joins(:artigo).where(user_id:@current_user.id).where(votoArtigo:false).count()%>
+      <p>pontuação: <%= c=a-b%> </p> <!-- exibir pontuação -->
+
       <div class="botaoPerfilUsuario">
         <%= link_to 'Perfil',user_path(@current_user) %>
       </div>
@@ -28,6 +32,7 @@
       <div class="usuarioAdmView">
         <h4><%= user.nome %></h4>
         <p><%= user.email %></p>
+        <p><%= user.cpf %></p>
         <p>Administrador:<%= user.is_adm %></p>
         <div class="botoesADM">
           <%= link_to 'Mostrar', user %>

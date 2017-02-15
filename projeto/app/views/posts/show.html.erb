@@ -5,55 +5,147 @@
 </style>
 
 <section id="secaoArtigo" class="container">
-<div class="titulo">
+<div id="postTitle" class="titulo">
   <h1>
     <%= @post.titulo %>
   </h1>
 </div>
 
-<div class="artigo">
-  <%= raw @post.conteudo %>
+<% curtidas = VotosPost.where(post_id: @post.id, votoPost: true).count() %>
+<% descurtidas = VotosPost.where(post_id: @post.id, votoPost: false).count() %>
+<div class="votacoes">
+<div class="col-md-10"></div>
+<div class="votacao col-md-1">
+  <%= link_to '<button id="curtir" class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></button>'.html_safe, votar_post_path(:booleano => true, :post_id => @post.id, :user_id => current_user.id), remote: true%>
+  <p id="curtidas"><%= curtidas %></p> <!-- contador de curtir-->
 </div>
+<div class="votacao col-md-1">
+  <%= link_to '<button id="descurtir" class="fa fa-thumbs-o-down fa-2x" aria-hidden="true"></button>'.html_safe, votar_post_path(:booleano => false, :post_id => @post.id, :user_id => current_user.id), remote: true%>
+  <p id="descurtidas"><%= descurtidas %></p><!-- contador de descurtir-->
+</div>
+</div>
+<script>
 
-<div class="container artigoData">
-  <div class="col-md-6 criador">
-    Criado por:
-    <strong><%= @post.user.nome %></strong>
-    em
-    <%= @post.data.strftime("%d/%m/%Y às %H:%M") %>
-  </div>
+  <% if @finddown %>
+    $('#descurtir').attr('disabled', true);
+  <% end %>
+  <% if @findup %>
+    $('#curtir').attr('disabled', true);
+  <% end %>
+    
+  $('#curtir').on('click', function(){
+    var curtidas = document.getElementById('curtidas');
+    if($('#descurtir').attr('disabled')){
+      var descurtidas = document.getElementById("descurtidas");
+      console.log(descurtidas.innerHTML);
+      descurtidas.innerHTML = Number(descurtidas.innerHTML) - 1;
+      $('#descurtir').attr('disabled', false);
+    }
+    curtidas.innerHTML = Number(curtidas.innerHTML) + 1;
+    this.disabled = true;
+  });
   
+  $('#descurtir').on('click', function(){
+    var descurtidas = document.getElementById('descurtidas');
+    if($('#curtir').attr('disabled')){
+      var curtidas = document.getElementById('curtidas');
+      console.log(descurtidas.innerHTML);
+      curtidas.innerHTML = Number(curtidas.innerHTML) - 1;
+      $('#curtir').attr('disabled', false);
+      
+    }
+    descurtidas.innerHTML = Number(descurtidas.innerHTML) + 1;
+    this.disabled = true;
+  });
+</script>
+
+<div class="home-box">
+  <%=  raw @post.conteudo %>
+  <div class="text-right">
+    <strong><%= @post.user.nome%></strong> em <%=@post.data.strftime("%d/%m/%Y às %H:%M") %>
+
+    <td><%= link_to '<i class="fa fa-pencil"></i></span>'.html_safe, edit_post_path(@post.id), class:"botaoEditar" %></td>
+
     <% if UserPost.exists?(:post_id => @post.id) %> <!-- verificar se houve modificação-->
+
       <%colaborador = UserPost.where(post_id:@post.id).order(:updated_at).first%> <!-- Pegar o ultimo colaborador-->
       <% User.all.each do |usuario| %>
-          <%if usuario.id == colaborador.user_id %>
-               Ultima modificação 
-               <%= colaborador.updated_at.strftime("%d/%m/%Y às %H:%M") %> <!--Exibir a hora da ultima modificação colaborador-->
-              por  <strong><%= usuario.nome  %>  <!--Exibir o nome do ultimo colaborador--></strong>
-              <% break %>
-          <%end %>
-      <%end %>
+
+      <%if usuario.id == colaborador.user_id %>
+
+        <br><br>
+        Modificado por <strong><%= usuario.nome  %></strong>
+         em <%= colaborador.updated_at.strftime("%d/%m/%Y às %H:%M") %>
+        <% break %>
     
+      <%end %>
     <%end %>
-</div>
-
-</section>
-
-<div class="container-fluid text-center">
-  <%= link_to '<span class="editar">Editar</span><span class="lapis"><i class="fa fa-pencil"></i></span>'.html_safe, edit_post_path(@post), class:"botaoEditar" %>
+  </div>
+  <%end %>
+  <br>
 </div>
 
 <% if @post.post_id == nil%>
 <% contanswer = Post.where(post_id:@post.id).count()%> <!-- contador de respostas-->
 <div class="titulo"><h2><%= contanswer%> Resposta(s)</h2></div>
 
-<div class="home-container container-fluid">
+
+<% contador = 0 %>
+<div>
   <%Post.order('created_at DESC').each do |post1|%> <!-- imprimir respostas -->
     <% if (@post.id==post1.post_id)%>
+      <div class="votacoes">
+      <div class="col-md-10"></div>
+      <div class="votacao col-md-1">
+        
+        <%= link_to "<button id='curtir#{contador}' class='fa fa-thumbs-o-up fa-2x' aria-hidden='true'></button>".html_safe, votar_post_path(:booleano => true, :post_id => post1.id, :user_id => current_user.id), remote: true%>
+        <p class="curtidas" id="curtidas<%=contador%>"><%= VotosPost.where(post_id: post1.id, votoPost: true).count() %></p> <!-- contador de curtir-->
+      </div>
+      <div class="votacao col-md-1">
+        <%= link_to "<button id='descurtir#{contador}' class='fa fa-thumbs-o-down fa-2x' aria-hidden='true'></button>".html_safe, votar_post_path(:booleano => false, :post_id => post1.id, :user_id => current_user.id), remote: true%>
+        <p class="descurtidas" id="descurtidas<%= contador %>"><%= VotosPost.where(post_id: post1.id, votoPost: false).count() %></p><!-- contador de descurtir-->
+      </div>
+      </div>
+      <script>
+      
+        <% if VotosPost.find_by(votoPost: false, post_id: post1.id, user_id: current_user.id) %>
+          $('#descurtir<%= contador %>').attr('disabled', true);
+        <% end %>
+        <% if VotosPost.find_by(votoPost: true, post_id: post1.id, user_id: current_user.id) %>
+          $('#curtir<%= contador %>').attr('disabled', true);
+        <% end %>
+          
+        $('#curtir<%= contador %>').on('click', function(){
+          var curtidas = document.getElementById('curtidas<%= contador %>');
+          if($('#descurtir<%= contador %>').attr('disabled')){
+            var descurtidas = document.getElementById("descurtidas<%= contador %>");
+            descurtidas.innerHTML = Number(descurtidas.innerHTML) - 1;
+            $('#descurtir<%= contador %>').attr('disabled', false);
+          }
+          curtidas.innerHTML = Number(curtidas.innerHTML) + 1;
+          this.disabled = true;
+        });
+        
+        $('#descurtir<%= contador %>').on('click', function(){
+          var descurtidas = document.getElementById('descurtidas<%= contador %>');
+          if($('#curtir<%= contador %>').attr('disabled')){
+            var curtidas = document.getElementById('curtidas<%= contador %>');
+            curtidas.innerHTML = Number(curtidas.innerHTML) - 1;
+            $('#curtir<%= contador %>').attr('disabled', false);
+            
+          }
+          descurtidas.innerHTML = Number(descurtidas.innerHTML) + 1;
+          this.disabled = true;
+        });
+      </script>
+      <% contador = contador + 1 %>
       <div class="home-box">
         <%=  raw post1.conteudo %>
         <div class="text-right">
-          <strong><%= post1.user.nome%></strong> em <%=post1.data.strftime("%d/%m/%Y às %H:%M") %>
+          <% if !post1.user.nil? %>
+          <strong><%= post1.user.nome%></strong> em 
+          <% end %>
+          <%=post1.data.strftime("%d/%m/%Y às %H:%M") %>
         
           <td><%= link_to '<i class="fa fa-pencil"></i></span>'.html_safe, edit_post_path(post1.id), class:"botaoEditar" %></td>
             
@@ -93,5 +185,6 @@
       </div>
 </div>
 <%end%>
-      
+
+</section>
 </html>

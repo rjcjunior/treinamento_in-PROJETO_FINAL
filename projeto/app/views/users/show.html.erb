@@ -5,6 +5,9 @@
         <p class="nomeUsuario">
           <%= @user.nome %>
         </p>
+        <% a=VotosPost.joins(:post).where(user_id:@user.id).where(votoPost:true).count()+VotosArtigo.joins(:artigo).where(user_id:@user.id).where(votoArtigo:true).count()%>
+        <% b=VotosPost.joins(:post).where(user_id:@user.id).where(votoPost:false).count()+VotosArtigo.joins(:artigo).where(user_id:@user.id).where(votoArtigo:false).count()%>
+        <p>pontuação: <%= c=a-b%> </p> <!-- exibir pontuação -->
         <div class="botaoPerfilUsuario">
           <%= link_to 'Perfil', user_path(@current_user) %>
         </div>
@@ -19,7 +22,6 @@
               <%= link_to 'Usuários', users_path %>
             </div>
         <%end%>
-        
     </div>
     <div class="col-md-9 perfil" id="pegarAlt"> 
       <h2 id="headUsuario">Usuário</h2>
@@ -35,38 +37,54 @@
           <br>
           <%= @user.email %>
       </div>
+      <div id="usuarioEmail">
+          <strong>CPF</strong>
+          <br>
+          <%= @user.cpf %>
+      </div>
+      
+      <div id="usuarioEmail">
+          <strong>Pergunta</strong>
+          <br>
+          <%= @user.pergunta %>
+      </div>
+      
+      <div id="usuarioEmail">
+          <strong>Resposta</strong>
+          <br>
+          <%= @user.resposta %>
+      </div>
+        
       <h2 id="headUltimasPostagens">Ultimas Postagens</h2>
-            <%aux=1%>
-            <%Artigo.order(:created_at).each do|art|%><!--  mostrar 3 ultimos artigos do usuario  -->
-                <% if art.user_id == @user.id and aux<=3 %>
-                  <div>
-                    <%= link_to art.titulo, art, class:"artigosUsuarioTitulo" %>
-                  </div>
-                  <div class="artigosUsuarioData">
-                    <%= art.data.strftime("%d/%m/%Y às %H:%M")  %>
-                  </div>
-                  <br>
-                  <%aux=aux+1%>
-                <% end %>
-            <% end %>
-            <%aux=1%>
-            <%Post.order('created_at DESC').each do|poste|%><!--  mostrar 3 ultimas perguntas do usuario  -->
-                      <% if poste.post_id==nil and poste.user_id == @user.id and aux<=3 %> <!-- exibir somente perguntas -->
-                      <div>
-                          <%= link_to poste.titulo, poste, class:"artigosUsuarioTitulo" %>
-                      </div>
-                      <div class="artigosUsuarioData">
-                          <%= poste.user.nome%> em <%= poste.data.strftime("%d/%m/%Y às %H:%M") %>
-                        </div>
-                          <br>
-                          <%aux=aux+1%>
-                     <%end%>  
-            <%end%>
-
+        <%aux=1%>
+        <%Artigo.order(:created_at).each do|art|%><!--  mostrar 3 ultimos artigos do usuario  -->
+          <% if art.user_id == @user.id and aux<=3 %>
+            <div>
+              <%= link_to art.titulo, art, class:"artigosUsuarioTitulo" %>
+            </div>
+            <div class="artigosUsuarioData">
+              <%= art.data.strftime("%d/%m/%Y às %H:%M")  %>
+            </div>
+            <br>
+            <%aux=aux+1%>
+          <% end %>
+        <% end %>
+        <%aux=1%>
+        <%Post.order('created_at DESC').each do|poste|%><!--  mostrar 3 ultimas perguntas do usuario  -->
+          <% if poste.post_id==nil and poste.user_id == @user.id and aux<=3 %> <!-- exibir somente perguntas -->
+          <div>
+              <%= link_to poste.titulo, poste, class:"artigosUsuarioTitulo" %>
+          </div>
+          <div class="artigosUsuarioData">
+              <%= poste.user.nome%> em <%= poste.data.strftime("%d/%m/%Y às %H:%M") %>
+            </div>
+              <br>
+              <%aux=aux+1%>
+         <%end%>  
+        <%end%>
     </div>
   </div>
   <script>
-    
     $('#pegarAltOp').height($('#pegarAlt').height());
   </script>
   <div class="clear"></div>

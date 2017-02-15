@@ -10,6 +10,24 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @existe = VotosPost.exists?(user_id: current_user.id, post_id: @post.id)
+    
+    @finddown = VotosPost.find_by(votoPost: false, post_id: @post.id, user_id: current_user.id)
+    
+    @findup = VotosPost.find_by(votoPost: true, post_id: @post.id, user_id: current_user.id)
+  end
+  
+  def votar
+    a = params[:booleano]
+    b = params[:post_id]
+    c = params[:user_id]
+    if !VotosPost.exists?(user_id: c, post_id: b)
+      voto = VotosPost.new(:user_id => c, :post_id => b, :votoPost => a)
+      voto.save
+    else
+      voto = VotosPost.find_by(user_id: c, post_id: b)
+      voto.update(:user_id => c, :post_id => b, :votoPost => a)
+    end
   end
 
   # GET /posts/new
@@ -29,7 +47,7 @@ class PostsController < ApplicationController
     @post.data = Time.now.utc
     respond_to do |format|
       if @post.save
-        format.html { redirect_to request.referer, notice: 'Post was successfully created.' }
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -76,7 +94,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:titulo, :conteudo, :data, :post_id)
+      params.require(:post).permit(:titulo, :conteudo, :data, :post_id, :tag)
     end
     
 end

@@ -14,16 +14,23 @@
     transition: 2s;
 }
 
+#postTitle h1 {
+  margin: 100px 0;
+}
+
 .post-reset-margin {
     margin-left: 0;
 }
 
 .postTitulo{
-    margin: 0;
+    margin-top: 0;
+    margin-left: 240px;
     font-family: 'Montserrat', sans-serif;
+    padding: 40px 0;
 }
 
 .editTitulo{
+    margin-top: 0;
     margin-left: 200px;
     font-family: 'Montserrat', sans-serif;
     padding-top: 20px;
@@ -37,4 +44,17 @@
 
 .editContainer {
     margin: 15px 110px;
+}
+.text-right{
+  margin-top: 10%;
+}
+.curtidas{
+    margin-left: 20%;
+    margin-top: 10px;
+    font-size: 20px;
+}
+.descurtidas{
+    margin-left: 20%;
+    margin-top: 10px;
+    font-size: 20px;
 }

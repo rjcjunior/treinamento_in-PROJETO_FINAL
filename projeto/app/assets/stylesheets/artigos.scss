@@ -107,16 +107,14 @@
     text-align: center;
     margin-bottom: 20px;
 }
-.qntdVotos{
-    text-align: center;
-}
 .fa-thumbs-o-up{
     color: #06c;
     border: 2px solid #06c;
     border-radius: 5px;
-    padding: 15px;
+    padding: 5px;
     transition: 1s;
-    margin-right: 20px;
+    margin-left: 20px;
+    float: right;
 }
 .fa-thumbs-o-up:hover{
     color: white;
@@ -124,12 +122,20 @@
     background-color: green;
     transition: 1s;
 }
+.fa-thumbs-o-up:disabled{
+    color: white;
+    border: 2px solid green;
+    background-color: green;
+}
+
 .fa-thumbs-o-down{
     color: #06c;
     border: 2px solid #06c;
     border-radius: 5px;
-    padding: 15px;
+    padding: 5px;
     transition: 1s;
+    float: right;
+
 }
 .fa-thumbs-o-down:hover{
     color: white;
@@ -137,19 +143,35 @@
     background-color: red;
     transition: 1s;
 }
-#curtir {
-    color: white;
-    border: 2px solid green;
-    background-color: green;
-    transition: 1s;
-}
-
-#descurtir{
+.fa-thumbs-o-down:disabled{
     color: white;
     border: 2px solid red;
     background-color: red;
-    transition: 1s;
 }
+.votacoes{
+    margin-top: 1%;
+}
+.votacoes .col-md-1{
+    margin: 0px !important;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.votacao{
+    border: 1px solid #b4b4b4;
+    margin: 0px;
+    border-radius: 5px;
+}
+#curtidas{
+    margin-left: 20%;
+    margin-top: 10px;
+    font-size: 20px;
+}
+#descurtidas{
+    margin-left: 20%;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
 //Pagina de criar artigo
 .paginaNovoArtigo{
     background-color: #F5F5F5;

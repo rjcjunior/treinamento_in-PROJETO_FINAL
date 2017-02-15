@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214194404) do
+ActiveRecord::Schema.define(version: 20170215170520) do
 
   create_table "artigos", force: :cascade do |t|
     t.string   "titulo"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20170214194404) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.text     "tag"
   end
 
   create_table "user_artigos", force: :cascade do |t|
@@ -71,6 +72,9 @@ ActiveRecord::Schema.define(version: 20170214194404) do
     t.datetime "updated_at",      null: false
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.string   "cpf"
+    t.string   "pergunta"
+    t.string   "resposta"
   end
 
   create_table "votos_artigos", force: :cascade do |t|

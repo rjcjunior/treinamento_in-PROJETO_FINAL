@@ -1,20 +1,19 @@
 
 
-<section>
-  <div class="container">
-<% @post.each do |post1|%>
-    <% if post1.post_id == nil %>    
-
-          <div class="col-md-6 x">
-            <h3 id="artigosTitulo"><%= link_to post1.titulo, post1 %></h3>
-            <div class="col-md-6 sumarioData">
-              <%= post1.data.strftime("%d/%m/%Y às %H:%M") %>
-            </div>
+<section id="postsPesquisa">
+  <div class="container sumarioPostsPesquisa">
+    <h2 class="tituloPaginasIndex">Posts</h2>
+    <% @post.each do |post1|%>
+      <% if post1.post_id == nil %>    
+        <div class="col-md-6 xPesquisa">
+          <h3 id="artigosTitulo"><%= link_to post1.titulo, post1 %></h3>
+          <div class="col-md-6 sumarioData">
+            <%= post1.data.strftime("%d/%m/%Y às %H:%M") %>
           </div>
-
-    <% end %>  
-<%end%>
-</div>
+        </div>
+      <% end %>  
+    <%end%>
+  </div>
 </section>
 <section id="artigosPesquisa">
   <div class="container sumarioArtigosPesquisa">

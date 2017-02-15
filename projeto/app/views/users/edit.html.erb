@@ -1,35 +1,39 @@
 
 <section class="perfilUsuario">
-    <div class="container">
-        <div class="col-md-3 perfilOpcoes" id="pegarAltOp">
-          <%= image_tag "lobo_icon.jpg", class: "fotoUsuario" %>
-            <p class="nomeUsuario">
-              <%= @user.nome %>
-            </p>
-            <div class="botaoPerfilUsuario">
-              <%= link_to 'Perfil', user_path(@current_user) %>
-            </div>
-            <div class="botaoPerfilEstatistica">
-              <%= link_to 'Estatisticas' %>
-            </div>
-            <div class="botaoEditarPerfil">
-              <%= link_to 'Editar Perfil', edit_user_path(@current_user) %>
-            
-            </div>
-            <% if @current_user.is_adm ==true%>
-              <div class="botaoAdmUsuarios">
-                <%= link_to 'Usuários', users_path %>
-              </div>
-            <%end%>
+  <div class="container">
+    <div class="col-md-3 perfilOpcoes" id="pegarAltOp">
+      <%= image_tag "lobo_icon.jpg", class: "fotoUsuario" %>
+        <p class="nomeUsuario">
+          <%= @user.nome %>
+        </p>
+        <% a=VotosPost.joins(:post).where(user_id:@user.id).where(votoPost:true).count()+VotosArtigo.joins(:artigo).where(user_id:@user.id).where(votoArtigo:true).count()%>
+        <% b=VotosPost.joins(:post).where(user_id:@user.id).where(votoPost:false).count()+VotosArtigo.joins(:artigo).where(user_id:@user.id).where(votoArtigo:false).count()%>
+        <p>pontuação: <%= c=a-b%> </p> <!-- exibir pontuação -->
+
+        <div class="botaoPerfilUsuario">
+          <%= link_to 'Perfil', user_path(@current_user) %>
         </div>
-        <div class="col-md-9 perfil" id="pegarAlt">
-            <h2 id="tituloEditarPerfil">Editar Perfil</h2>
-            <%= render 'form', user: @user %>
-    
+        <div class="botaoPerfilEstatistica">
+          <%= link_to 'Estatisticas' %>
         </div>
+        <div class="botaoEditarPerfil">
+          <%= link_to 'Editar Perfil', edit_user_path(@current_user) %>
+        
+        </div>
+        <% if @current_user.is_adm ==true%>
+          <div class="botaoAdmUsuarios">
+            <%= link_to 'Usuários', users_path %>
+          </div>
+        <%end%>
     </div>
-    <script>
-    
+    <div class="col-md-9 perfil" id="pegarAlt">
+        <h2 id="tituloEditarPerfil">Editar Perfil</h2>
+        <%= render 'form', user: @user %>
+
+    </div>
+  </div>
+  <script>
     $('#pegarAltOp').height($('#pegarAlt').height());
   </script>
+  <div class="clear"></div>
 </section>

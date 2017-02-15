@@ -2,13 +2,11 @@
 
 <html>
 	<style>
-@import url('https://fonts.googleapis.com/css?family=Yellowtail');
 <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 </style>
 <body class="bodyLogin">
 	<header>
-		<%= image_tag "logo-branca-mini-2.png", class: "logo" %>
-		<p class="textLogo">kipedia</p>
+		<%= image_tag "inkipedia_white_2.png", class: "logo" %>
     	<div class="login">
   
         <%= form_for(:session, url: login_path) do |f| %>
@@ -30,7 +28,7 @@
             <%= f.submit "Log in", class:"botaoLogin" %>
 			<br>
 			<div class="esqueceuSenha">
-				Esqueceu a senha? <%= link_to "Clique aqui", new_password_reset_path %>
+				Esqueceu a senha? <%= link_to "Clique aqui", email_path %>
 			</div>
 
         <% end %>

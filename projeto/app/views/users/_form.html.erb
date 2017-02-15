@@ -1,68 +1,93 @@
-     
+<%= form_for(user) do |f| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <%= form_for(user) do |f| %>
-        <% if user.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-      
-            <ul>
-            <% user.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
-      
-      
-        
-        <div class="fieldEditarUsuario">
-          <div class="col-md-5 labelEditarPerfil labelEditarPerfilNome">
-            <%= f.label :nome %>
-          </div>
-          <div class="col-md-7 inputEditarPerfil">
-            <%= f.text_field :nome, class:"inputEditarPerfil2", :required => true %>
-          </div>
-          
-          
-        </div>
-      
-        <div class="field">
-          <div class="col-md-5 labelEditarPerfil">
-            <%= f.label :email %>
-          </div>
-          <div class="col-md-7 inputEditarPerfil">
-            <%= f.email_field :email, :pattern => "[a-z0-9._%+-]+[.]+[a-z0-9._%+-]+@injunior.com$", :placeholder => "nome.nome@injunior.com",:required => true, class:"inputEditarPerfil2" %>
-          </div>
-        </div>
-        
-        <div class="field">
-          <div class="col-md-5 labelEditarPerfil">
-            <%= f.label :"Senha" %>
-          </div>
-          <div class="col-md-7 inputEditarPerfil">
-            <%= f.password_field :password, :required => true, class:"inputEditarPerfil2" %>
-          </div>  
-        </div>
-      
-        <div class="field">
-          <div class="col-md-5 labelEditarPerfil">
-            <%= f.label :"Confirmar senha" %>
-          </div>
-          <div class="col-md-7 inputEditarPerfil">
-            <%= f.password_field :password_confirmation, :required => true, class:"inputEditarPerfil2" %>
-          </div>  
-        </div>
-        <% if @current_user.is_adm == true %>
-          <div class="field">
-            <%= f.label :is_adm %>
-            <%= f.check_box :is_adm, :required => true %>
-          </div>
-        <% end%>
-        <div class="actions">
-          <div class="BotaoSalvar">
-            <%= f.submit  :class => 'botaoSalvarEdicao' %>
-          </div>
-          
-        </div>
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="fieldEditarUsuario">
+    <div class="col-md-5 labelEditarPerfil labelEditarPerfilNome">
+      <%= f.label :nome %>
+    </div>
+    <div class="col-md-7 inputEditarPerfil">
+      <%= f.text_field :nome, class:"inputEditarPerfil2", :required => true %>
+    </div>
+  </div> 
+
+  <div class="field">
+    <div class="col-md-5 labelEditarPerfil">
+      <%= f.label :email %>
+    </div>
+    <div class="col-md-7 inputEditarPerfil">
+      <%= f.email_field :email, :pattern => "[a-z0-9._%+-]+[.]+[a-z0-9._%+-]+@injunior.com.br$", :placeholder => "nome.nome@injunior.com",:required => true, class:"inputEditarPerfil2" %>
+    </div>
+  </div>
+  
+  <div class="field">
+    <div class="col-md-5 labelEditarPerfil">
+      <%= f.label :"Senha" %>
+    </div>
+    <div class="col-md-7 inputEditarPerfil">
+      <%= f.password_field :password, :required => true, class:"inputEditarPerfil2" %>
+    </div>  
+  </div>
+
+  <div class="field">
+    <div class="col-md-5 labelEditarPerfil">
+      <%= f.label :"Confirmar senha" %>
+    </div>
+    <div class="col-md-7 inputEditarPerfil">
+      <%= f.password_field :password_confirmation, :required => true, class:"inputEditarPerfil2" %>
+    </div>  
+  </div>
+  
+  <div class="field">
+    <div class="col-md-5 labelEditarPerfil">
+      <%= f.label :"Insira a Pergunta" %>
+    </div>
+    <div class="col-md-7 inputEditarPerfil">
+      <%= f.text_field :pergunta, :required => true, class:"inputEditarPerfil2" %>
+    </div>  
+  </div>
+
+    
+  <div class="field">
+    <div class="col-md-5 labelEditarPerfil">
+      <%= f.label :"Insira a Resposta" %>
+    </div>
+    <div class="col-md-7 inputEditarPerfil">
+      <%= f.text_field :resposta, :required => true, class:"inputEditarPerfil2" %>
+    </div>  
+  </div>
+
+    
+  <% if @current_user.is_adm == true %>
+    <div class="field">
+        <div class="col-md-5 labelEditarPerfil">
+          <%= f.label :"Insira CPF" %>
+        </div>
+        <div class="col-md-7 inputEditarPerfil">
+          <%= f.number_field :cpf, :required => true, class:"inputEditarPerfil2" %>
+        </div>  
+    </div>
+  
+    <div class="field">
+      <%= f.label :is_adm %>
+      <%= f.check_box :is_adm%>
+    </div>
+  
+  <% end%>
+  <div class="actions">
+    <div class="BotaoSalvar">
+      <%= f.submit  :class => 'botaoSalvarEdicao' %>
+    </div>
+    
+  </div>
+<% end %>
   

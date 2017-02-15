@@ -8,7 +8,10 @@
         <%= art.subtitulo.truncate(30) %>
         </div>
         <div class="col-md-6 sumarioData">
-          <%= art.user.nome%> - <%= art.data.strftime("%d/%m/%Y às %H:%M") %>
+          <% if !art.user.nil? %>
+          <%= art.user.nome%> - 
+          <%end %>
+          <%= art.data.strftime("%d/%m/%Y às %H:%M") %>
         </div>
       </div>
     <%end%>
@@ -22,7 +25,13 @@
       <div class="col-md-6 xHome">
         <h3 id="postsTitulo"><%= link_to post1.titulo, post1 %></h3>
         <div class="col-md-6">
-          <%= post1.user.nome%> em <%= post1.data.strftime("%d/%m/%Y às %H:%M") %>
+          <%= post1.tag %>
+        </div>
+        <div class="col-md-6 sumarioData">
+          <% if !post1.user.nil? %>
+          <%= post1.user.nome%> em 
+          <%end %>
+          <%= post1.data.strftime("%d/%m/%Y às %H:%M") %>
         </div>
       </div>
       <%end%>

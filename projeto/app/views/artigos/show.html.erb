@@ -7,41 +7,7 @@
 
 <section id="secaoArtigo" class="container">
 
-
-<%= link_to '<button id="curtir">Curtir</button>'.html_safe, votar_path(:booleano => true, :artigo_id => @artigo.id), remote: true%>
-<p><% VotosArtigo.where(user_id: @user.id).count()%> <!-- contador de respostas--></p>
-<%= link_to '<button id="descurtir">Descurtir</button>'.html_safe, votar_path(:booleano => false, :artigo_id => @artigo.id), remote: true%>
-<script>
-
-  <% if @finddown %>
-      $('#descurtir').attr('disabled', true);
-    <% elsif @findup %>
-      $('#curtir').attr('disabled', true);
-    <% end %>
-    
-  $('#curtir').on('click', function(){
-    var qtdVotos = document.getElementById('pontos');
-    if($('#descurtir').attr('disabled')){
-      console.log('lul');
-      $('#descurtir').attr('disabled', false);
-      qtdVotos.innerHTML = Number(qtdVotos.innerHTML) + 2;
-    }
-    var qtdVotos = document.getElementById('pontos');
-    qtdVotos.innerHTML = Number(qtdVotos.innerHTML);
-    this.disabled = true;
-  });
   
-  $('#descurtir').on('click', function(){
-    var qtdVotos = document.getElementById('pontos');
-    if($('#curtir').attr('disabled')){
-      console.log('lul');
-      $('#curtir').attr('disabled', false);
-      qtdVotos.innerHTML = Number(qtdVotos.innerHTML) - 2;
-    }
-    qtdVotos.innerHTML = Number(qtdVotos.innerHTML);
-    this.disabled = true;
-  });
-</script>
 <div class="titulo">
   <h1>
     <%= @artigo.titulo %>
@@ -51,14 +17,17 @@
 
 <div class="container artigoData">
     <div class="col-md-6 criador">
+      <% if !@artigo.user.nil? %>
       Criado por:
       <strong><%= @artigo.user.nome %></strong>
       em
+      <% end %>
       <%= @artigo.data.strftime("%d/%m/%Y às %H:%M") %>
-    </div>
-    <div class="col-md-6 data">
-
+    </div
     
+    
+    <div class="col-md-6 data">
+  
     <% if UserArtigo.exists?(:artigo_id => @artigo.id) %> <!-- verificar se houve modificação-->
       <%colaborador = UserArtigo.where(artigo_id:@artigo.id).order(:updated_at).first%> <!-- Pegar o ultimo colaborador-->
       <% User.all.each do |usuario| %>
@@ -75,6 +44,55 @@
     </div>
     
 </div>
+
+<% curtidas = VotosArtigo.where(artigo_id: @artigo.id, votoArtigo: true).count() %>
+<% descurtidas = VotosArtigo.where(artigo_id: @artigo.id, votoArtigo: false).count() %>
+<div class="votacoes">
+<div class="col-md-10"></div>
+<div class="votacao col-md-1">
+  <%= link_to '<button id="curtir" class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></button>'.html_safe, votar_artigo_path(:booleano => true, :artigo_id => @artigo.id, :user_id => current_user.id), remote: true%>
+  <p id="curtidas"><%= curtidas %></p> <!-- contador de curtir-->
+</div>
+<div class="votacao col-md-1">
+  <%= link_to '<button id="descurtir" class="fa fa-thumbs-o-down fa-2x" aria-hidden="true"></button>'.html_safe, votar_artigo_path(:booleano => false, :artigo_id => @artigo.id, :user_id => current_user.id), remote: true%>
+  <p id="descurtidas"><%= descurtidas %></p><!-- contador de descurtir-->
+</div>
+</div>
+<script>
+
+  <% if @finddown %>
+    $('#descurtir').attr('disabled', true);
+  <% end %>
+  <% if @findup %>
+    $('#curtir').attr('disabled', true);
+  <% end %>
+    
+  $('#curtir').on('click', function(){
+    var curtidas = document.getElementById('curtidas');
+    if($('#descurtir').attr('disabled')){
+      var descurtidas = document.getElementById("descurtidas");
+      console.log(descurtidas.innerHTML);
+      descurtidas.innerHTML = Number(descurtidas.innerHTML) - 1;
+      $('#descurtir').attr('disabled', false);
+    }
+    curtidas.innerHTML = Number(curtidas.innerHTML) + 1;
+    this.disabled = true;
+  });
+  
+  $('#descurtir').on('click', function(){
+    var descurtidas = document.getElementById('descurtidas');
+    if($('#curtir').attr('disabled')){
+      var curtidas = document.getElementById('curtidas');
+      console.log(descurtidas.innerHTML);
+      curtidas.innerHTML = Number(curtidas.innerHTML) - 1;
+      $('#curtir').attr('disabled', false);
+      
+    }
+    descurtidas.innerHTML = Number(descurtidas.innerHTML) + 1;
+    this.disabled = true;
+  });
+</script>
+
 
 <div class="artigo">
   <%= raw @artigo.conteudo %>

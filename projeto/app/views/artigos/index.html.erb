@@ -1,33 +1,31 @@
 <section id=paginaArtigos>
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
 
 
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 
-<h1 class="tituloPaginasIndex">Artigos</h1>
+  <h1 class="tituloPaginasIndex">Artigos</h1>
  
 
-<div class="col-md-12 divBotao">
-  <%= link_to 'Novo Artigo', new_artigo_path, class:" botaoNovoArtigo" %>
-</div>
-
- <div class="container sumarioArtigos">
-  <% @artigos.each do |artigo1| %>
-    
-          <div class="col-md-6 x">
-            <h3 id="artigosTitulo"><%= link_to artigo1.titulo, artigo1 %></h3>
-            <div class="col-md-6">
-              <%=  artigo1.subtitulo.truncate(30) %>
-            </div>
-            <div class="col-md-6 sumarioData">
-              <%= artigo1.data.strftime("%d/%m/%Y às %H:%M") %>
-            </div>
-          </div>
-       
-  <% end %>
+  <div class="col-md-12 divBotao">
+    <%= link_to 'Novo Artigo', new_artigo_path, class:" botaoNovoArtigo" %>
   </div>
 
-<%= will_paginate @artigos,:previous_label => '<<',:next_label => '>>', class:"col-md-12 mudancaPaginaArtigo" %>
+  <div class="container sumarioArtigos">
+    <% @artigos.each do |artigo1| %>
+      <div class="col-md-6 x">
+        <h3 id="artigosTitulo"><%= link_to artigo1.titulo, artigo1 %></h3>
+        <div class="col-md-6">
+          <%=  artigo1.subtitulo.truncate(30) %>
+        </div>
+        <div class="col-md-6 sumarioData">
+          <%= artigo1.data.strftime("%d/%m/%Y às %H:%M") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
-<div class="clear"></div>
+  <%= will_paginate @artigos,:previous_label => '<<',:next_label => '>>', class:"col-md-12 mudancaPaginaArtigo" %>
+
+  <div class="clear"></div>
 </section>

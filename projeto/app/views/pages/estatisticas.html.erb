@@ -5,6 +5,10 @@
         <p class="nomeUsuario">
           <%= @current_user.nome %>
         </p>
+        <% a=VotosPost.joins(:post).where(user_id:@current_user.id).where(votoPost:true).count()+VotosArtigo.joins(:artigo).where(user_id:@current_user.id).where(votoArtigo:true).count()%>
+        <% b=VotosPost.joins(:post).where(user_id:@current_user.id).where(votoPost:false).count()+VotosArtigo.joins(:artigo).where(user_id:@current_user.id).where(votoArtigo:false).count()%>
+        <p>pontuação: <%= c=a-b%> </p> <!-- exibir pontuação -->
+
         <div class="botaoPerfilUsuario">
           <%= link_to 'Perfil', user_path(@current_user) %>
         </div>
@@ -23,26 +27,26 @@
         
     </div>
     <div class="col-md-9 perfil" id="pegarAlt">
-    <h1 id="h1Estatisticas">Estatísticas</h1>
-<% if current_user.is_adm ==true %>
-<h2 class="h2Estatisticas">Geral</h2>
-<br>
-<h3 class="h3Estatisticas">Artigo</h3>
-<%= bar_chart User.joins(:artigo).group(:nome).count(:titulo), id: "usersa-chart", width: "600px", height: "250px",  label: "Quantidade"  %>
-<h3 class="h3Estatisticas">Perguntas</h3>
-<%= bar_chart Post.joins(:user).where(post_id:nil).group(:nome).count(:id), id: "usersp-chart", width: "600px", height: "250px",  label: "Quantidade" %>
-<h3 class="h3Estatisticas">Respostas</h3>
-<%= bar_chart Post.joins(:user).where.not(post_id:nil).group(:nome).count(:id), id: "usersr-chart", width: "600px", height: "250px",  label: "Quantidade" %>
-<br>
-<h2 class="h2Estatisticas">Específico</h2>
-<% end%>
-<h3 class="h3Estatisticas">Artigo</h3>
-<%= bar_chart({"Artigos Totais" => Artigo.count(:id), "Voce" => Artigo.where(user_id:current_user.id).count(:id) }, id: "usersae-chart", width: "600px", height: "250px",  label: "Quantidade") %>
-<h3 class="h3Estatisticas">Perguntas</h3>
-<%= bar_chart({"Perguntas Totais" => Post.where(post_id:nil).count(:id), "Voce" => Post.where(user_id:current_user.id).where(post_id:nil).count(:id) }, id: "userspe-chart", width: "600px", height: "250px",  label: "Quantidade") %>
-<h3 class="h3Estatisticas">Respostas</h3>
-<%= bar_chart({"Respostas Totais" => Post.where.not(post_id:nil).count(:id), "Voce" => Post.where(user_id:current_user.id).where.not(post_id:nil).count(:id) }, id: "usersre-chart", width: "600px", height: "250px",  label: "Quantidade") %>
-</div>
+      <h1 id="h1Estatisticas">Estatísticas</h1>
+      <% if current_user.is_adm ==true %>
+        <h2 class="h2Estatisticas">Geral</h2>
+        <br>
+        <h3 class="h3Estatisticas">Artigo</h3>
+        <%= bar_chart User.joins(:artigo).group(:nome).count(:titulo), id: "usersa-chart", width: "600px", height: "250px",  label: "Quantidade"  %>
+        <h3 class="h3Estatisticas">Perguntas</h3>
+        <%= bar_chart Post.joins(:user).where(post_id:nil).group(:nome).count(:id), id: "usersp-chart", width: "600px", height: "250px",  label: "Quantidade" %>
+        <h3 class="h3Estatisticas">Respostas</h3>
+        <%= bar_chart Post.joins(:user).where.not(post_id:nil).group(:nome).count(:id), id: "usersr-chart", width: "600px", height: "250px",  label: "Quantidade" %>
+        <br>
+        <h2 class="h2Estatisticas">Específico</h2>
+        <% end%>
+        <h3 class="h3Estatisticas">Artigo</h3>
+        <%= bar_chart({"Artigos Totais" => Artigo.count(:id), "Voce" => Artigo.where(user_id:current_user.id).count(:id) }, id: "usersae-chart", width: "600px", height: "250px",  label: "Quantidade") %>
+        <h3 class="h3Estatisticas">Perguntas</h3>
+        <%= bar_chart({"Perguntas Totais" => Post.where(post_id:nil).count(:id), "Voce" => Post.where(user_id:current_user.id).where(post_id:nil).count(:id) }, id: "userspe-chart", width: "600px", height: "250px",  label: "Quantidade") %>
+        <h3 class="h3Estatisticas">Respostas</h3>
+        <%= bar_chart({"Respostas Totais" => Post.where.not(post_id:nil).count(:id), "Voce" => Post.where(user_id:current_user.id).where.not(post_id:nil).count(:id) }, id: "usersre-chart", width: "600px", height: "250px",  label: "Quantidade") %>
+    </div>
   </div>
   <div class="padding"></div>
   <script>

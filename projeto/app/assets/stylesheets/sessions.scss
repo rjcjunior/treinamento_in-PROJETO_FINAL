@@ -25,17 +25,12 @@
 		}
 		.logo{
 			margin-top: 40px;
+			margin-bottom: 100px;
 			position: absolute;
-			left: calc(50% - 77px);
+			left: calc(50% - 58px);
 			
 		}
-		.textLogo{
-			font-family: 'Yellowtail', cursive;
-			color: white;
-			text-align: center;
-			padding-top: 70px;
-			font-size: 50px;
-		}
+
 		.login{
 			width: 400px;
 			height: 300px;
@@ -43,7 +38,7 @@
 			background-color: white;
 			text-align: center;
 			left: calc(50% - 200px);
-			margin-top: 50px;
+			margin-top: 13%;
 
 			border-radius: 10px;
 			-webkit-box-shadow: -1px 0px 74px -7px rgba(105,105,105,0.9);
