@@ -1,3 +1,4 @@
+<% provide(:title, "Artigos") %>
 <html class="paginaArtigo">
 <style>
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
@@ -29,7 +30,7 @@
     <div class="col-md-6 data">
   
     <% if UserArtigo.exists?(:artigo_id => @artigo.id) %> <!-- verificar se houve modificação-->
-      <%colaborador = UserArtigo.where(artigo_id:@artigo.id).order(:updated_at).first%> <!-- Pegar o ultimo colaborador-->
+      <%colaborador = UserArtigo.where(artigo_id:@artigo.id).order(:created_at).first%> <!-- Pegar o ultimo colaborador-->
       <% User.all.each do |usuario| %>
           <%if usuario.id == colaborador.user_id %>
                Ultima modificação 

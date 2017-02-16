@@ -1,4 +1,4 @@
-
+<% provide(:title, "Editar Perfil") %>
 <section class="perfilUsuario">
   <div class="container">
     <div class="col-md-3 perfilOpcoes" id="pegarAltOp">
@@ -14,7 +14,7 @@
           <%= link_to 'Perfil', user_path(@current_user) %>
         </div>
         <div class="botaoPerfilEstatistica">
-          <%= link_to 'Estatisticas' %>
+          <%= link_to 'Estatisticas', estatisticas_path %>
         </div>
         <div class="botaoEditarPerfil">
           <%= link_to 'Editar Perfil', edit_user_path(@current_user) %>
