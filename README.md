@@ -9,7 +9,7 @@ O sistema contem artigos, perguntas e respostas, sistemas de votos, sistemas de 
  * Bruna Miranda (Front-end);
  * Gabriel Lobo (Front-end);
  * Matheus Erthal (Back-end);
- * Ricardo Junior (Bac-endk;
+ * Ricardo Junior (Bac-end);
 
 ## Agradecimentos
  * Toda a galera ligada a IN que nos ensinou e auxiliou durante o processo.
