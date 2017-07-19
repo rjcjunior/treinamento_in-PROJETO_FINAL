@@ -1,19 +1,15 @@
-
-    ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--,
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    -----------------------------------------------------------------
+# Inkipedia
+    Sistema de wikia para a IN Junior.
+## Objetivo
+Desenvolver Wikia para a IN Junior, como projeto final do treinamento, sendo desenvolvido em Ruby on Rails e aplicando todo o conhecimento adquirido pelo treinamento. 
+O sistema contem artigos, perguntas e respostas, sistemas de votos, sistemas de estatisticas, login e pesquisa.
 
 
-Hi there! Welcome to Cloud9 IDE!
+## Créditos
+ * Bruna Miranda (Front-end);
+ * Gabriel Lobo (Front-end);
+ * Matheus Erthal (Back-end);
+ * Ricardo Junior (Bac-endk;
 
-This Cloud9 system is designed to be used with the [Ruby on Rails Tutorial](http://www.railstutorial.org/) by Michael Hartl. Full setup instructions can be found for free online in the [*Ruby on Rails Tutorial* book](http://www.railstutorial.org/book).
-
-For more information on how to use Cloud9, visit http://docs.c9.io for our documentation. If you want, you can also go watch some training videos at
-http://www.youtube.com/user/c9ide.
-
-Happy coding!
-The Cloud9 IDE team
-
+## Agradecimentos
+ * Toda a galera ligada a IN que nos ensinou e auxiliou durante o processo.
